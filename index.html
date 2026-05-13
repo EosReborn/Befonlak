@@ -1,969 +1,327 @@
 <!DOCTYPE html>
-<html class="dark" lang="hu">
-<head>
+
+<html lang="hu"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Befon Lak</title>
-
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Manrope:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
-:root{
-    --primary:#53ddd8;
-    --background:#131313;
-    --surface:#131313;
-    --surface-lowest:#0e0e0e;
-    --surface-card:#201f1f;
-    --text:#e5e2e1;
-    --muted:#bbc9c8;
-}
-
-*{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    margin:0;
-    background:var(--background);
-    color:var(--text);
-    font-family:'Manrope',sans-serif;
-    overflow-x:hidden;
-}
-
-h1,h2,h3,h4,.brand{
-    font-family:'Syne',sans-serif;
-}
-
-img{
-    display:block;
-    max-width:100%;
-}
-
-.container{
-    width:min(1200px,100%);
-    margin-inline:auto;
-    padding-inline:clamp(18px,4vw,48px);
-}
-
-.glass-card{
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
-    border:1px solid rgba(255,255,255,0.15);
-}
-
-.ghost-border{
-    border:1px solid rgba(255,255,255,0.15);
-}
-
-.award-gradient-silver{
-    background:linear-gradient(135deg,#C0C0C0 0%,#E8E8E8 50%,#A9A9A9 100%);
-}
-
-.award-gradient-bronze{
-    background:linear-gradient(135deg,#CD7F32 0%,#E3A869 50%,#8B4513 100%);
-}
-
-.teal-glow:hover{
-    box-shadow:inset 0 0 20px rgba(83,221,216,0.2);
-}
-
-.nav{
-    position:fixed;
-    inset:0 0 auto 0;
-    z-index:50;
-    background:rgba(19,19,19,0.84);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(255,255,255,0.10);
-}
-
-.nav-inner{
-    min-height:68px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.brand{
-    font-size:22px;
-    line-height:1;
-    font-weight:700;
-    color:var(--primary);
-    letter-spacing:-.02em;
-}
-
-.nav-links{
-    display:flex;
-    gap:32px;
-    align-items:center;
-}
-
-.nav-link{
-    color:var(--muted);
-    text-decoration:none;
-    transition:.2s ease;
-}
-
-.nav-link:hover,
-.nav-link.active{
-    color:var(--primary);
-}
-
-.nav-link.active{
-    font-weight:700;
-    border-bottom:2px solid var(--primary);
-    padding-bottom:6px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-height:48px;
-    padding:0 28px;
-    border-radius:999px;
-    font-weight:700;
-    text-decoration:none;
-    cursor:pointer;
-    transition:.2s ease;
-    border:0;
-    white-space:nowrap;
-}
-
-.btn-primary{
-    background:var(--primary);
-    color:#003735;
-}
-
-.btn-primary:hover{
-    transform:translateY(-1px);
-    box-shadow:0 0 22px rgba(83,221,216,.35);
-}
-
-.btn-ghost{
-    color:white;
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.15);
-}
-
-.btn-ghost:hover{
-    background:rgba(255,255,255,.06);
-}
-
-main{
-    padding-top:68px;
-}
-
-.hero{
-    min-height:760px;
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(360px,520px);
-    gap:56px;
-    align-items:center;
-    padding-block:72px;
-}
-
-.hero-copy{
-    position:relative;
-    z-index:2;
-}
-
-.hero h1{
-    font-size:clamp(52px,7vw,88px);
-    line-height:.95;
-    font-weight:800;
-    letter-spacing:-.04em;
-    margin:0 0 18px;
-    color:#fff;
-}
-
-.hero p{
-    font-size:clamp(19px,2vw,26px);
-    line-height:1.4;
-    color:var(--muted);
-    margin:0 0 32px;
-}
-
-.hero-actions{
-    display:flex;
-    flex-wrap:wrap;
-    gap:16px;
-}
-
-.hero-media{
-    position:relative;
-}
-
-.hero-media::before{
-    content:"";
-    position:absolute;
-    inset:8% auto auto -16%;
-    width:70%;
-    height:70%;
-    border-radius:999px;
-    background:rgba(83,221,216,.14);
-    filter:blur(80px);
-}
-
-.hero-media img{
-    position:relative;
-    width:100%;
-    height:620px;
-    object-fit:cover;
-    border-radius:0 0 0 110px;
-    opacity:.82;
-}
-
-.awards{
-    padding-block:64px 96px;
-}
-
-.awards-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:24px;
-}
-
-.award-card{
-    padding:32px;
-    border-radius:18px;
-    min-height:230px;
-}
-
-.award-icon{
-    width:52px;
-    height:52px;
-    border-radius:999px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom:24px;
-}
-
-.eyebrow{
-    display:block;
-    color:var(--primary);
-    text-transform:uppercase;
-    font-size:12px;
-    line-height:1;
-    letter-spacing:.06em;
-    font-weight:700;
-    margin-bottom:12px;
-}
-
-.award-card h3{
-    font-size:25px;
-    line-height:1.2;
-    margin:0 0 10px;
-}
-
-.award-card p{
-    color:var(--muted);
-    line-height:1.55;
-    margin:0;
-}
-
-.services{
-    background:var(--surface-lowest);
-    padding-block:110px;
-}
-
-.services-grid{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(360px,1fr);
-    gap:72px;
-    align-items:center;
-}
-
-.section-title{
-    font-size:clamp(42px,5vw,68px);
-    line-height:.98;
-    font-weight:800;
-    letter-spacing:-.04em;
-    margin:0 0 44px;
-}
-
-.section-title .accent{
-    color:var(--primary);
-}
-
-.service-list{
-    display:grid;
-    gap:30px;
-}
-
-.service-item{
-    display:grid;
-    grid-template-columns:36px minmax(0,1fr);
-    gap:20px;
-    align-items:start;
-}
-
-.service-item .material-symbols-outlined{
-    color:var(--primary);
-    font-size:30px;
-}
-
-.service-item h4{
-    font-size:25px;
-    line-height:1.25;
-    margin:0 0 8px;
-}
-
-.service-item p{
-    color:var(--muted);
-    line-height:1.6;
-    margin:0;
-}
-
-.service-image-wrap{
-    position:relative;
-    padding-bottom:34px;
-}
-
-.service-image{
-    border-radius:32px;
-    padding:16px;
-}
-
-.service-image img{
-    width:100%;
-    aspect-ratio:1/1;
-    object-fit:cover;
-    border-radius:24px;
-}
-
-.quote{
-    position:absolute;
-    left:-28px;
-    bottom:0;
-    max-width:350px;
-    padding:22px;
-    border-radius:18px;
-}
-
-.quote p{
-    margin:0;
-    font-style:italic;
-    line-height:1.5;
-}
-
-.gallery{
-    padding-block:110px;
-}
-
-.gallery-head{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:24px;
-    margin-bottom:44px;
-}
-
-.gallery-head h2{
-    margin:0;
-    font-size:clamp(42px,5vw,68px);
-    line-height:.95;
-    font-weight:800;
-    letter-spacing:-.04em;
-}
-
-.gallery-head p{
-    margin:12px 0 0;
-    color:var(--muted);
-}
-
-.text-link{
-    color:var(--primary);
-    background:none;
-    border:0;
-    font-weight:700;
-    cursor:pointer;
-    padding:0;
-}
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:24px;
-}
-
-.gallery-item{
-    aspect-ratio:4/5;
-    overflow:hidden;
-    border-radius:18px;
-}
-
-.gallery-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .5s ease;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.08);
-}
-
-.visit{
-    padding-block:110px;
-    border-top:1px solid rgba(255,255,255,.06);
-}
-
-.visit-grid{
-    display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(360px,1fr);
-    gap:72px;
-    align-items:center;
-}
-
-.info-list{
-    display:grid;
-    gap:22px;
-    margin-bottom:44px;
-}
-
-.info-row{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    font-size:19px;
-}
-
-.info-row .material-symbols-outlined{
-    color:var(--primary);
-}
-
-.hours-title{
-    font-size:25px;
-    margin:0 0 18px;
-}
-
-.hours{
-    display:grid;
-    gap:12px;
-    max-width:520px;
-    color:var(--muted);
-}
-
-.hours li{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    list-style:none;
-}
-
-.visit-img{
-    overflow:hidden;
-    border-radius:32px;
-}
-
-.visit-img img{
-    width:100%;
-    height:430px;
-    object-fit:cover;
-    filter:grayscale(1);
-    opacity:.82;
-    transform:scale(1.01);
-}
-
-.footer{
-    background:var(--surface-lowest);
-    padding-block:48px;
-    border-top:1px solid rgba(255,255,255,.06);
-}
-
-.footer-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:32px;
-}
-
-.footer-brand{
-    color:var(--primary);
-    font-family:'Syne';
-    font-size:25px;
-    font-weight:700;
-    margin-bottom:10px;
-}
-
-.footer p{
-    color:var(--muted);
-    margin:0;
-}
-
-.footer-links{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:24px;
-    color:var(--muted);
-}
-
-.footer-links a{
-    color:var(--muted);
-    text-decoration:none;
-}
-
-.footer-links a:hover{
-    color:var(--primary);
-}
-
-.socials{
-    display:flex;
-    gap:14px;
-}
-
-.socials a{
-    width:42px;
-    height:42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:999px;
-    color:var(--text);
-    text-decoration:none;
-}
-
-@media (max-width:900px){
-    .nav-inner{
-        min-height:60px;
-    }
-
-    .brand{
-        font-size:18px;
-    }
-
-    .nav-links{
-        display:none;
-    }
-
-    main{
-        padding-top:60px;
-    }
-
-    .container{
-        padding-inline:20px;
-    }
-
-    .hero{
-        min-height:auto;
-        grid-template-columns:1fr;
-        gap:32px;
-        padding-block:44px 64px;
-    }
-
-    .hero-copy{
-        text-align:left;
-    }
-
-    .hero h1{
-        font-size:clamp(46px,15vw,64px);
-        max-width:360px;
-    }
-
-    .hero p{
-        font-size:18px;
-        max-width:360px;
-    }
-
-    .hero-actions{
-        display:grid;
-        grid-template-columns:1fr;
-        max-width:360px;
-    }
-
-    .btn{
-        width:100%;
-        min-height:50px;
-        padding-inline:18px;
-    }
-
-    .hero-media{
-        order:2;
-        width:100%;
-    }
-
-    .hero-media img{
-        height:auto;
-        aspect-ratio:1/1.08;
-        border-radius:28px;
-        opacity:.9;
-        object-position:center;
-    }
-
-    .hero-media::before{
-        inset:15% auto auto 10%;
-        width:70%;
-        height:60%;
-    }
-
-    .awards{
-        padding-block:22px 72px;
-    }
-
-    .awards-grid,
-    .services-grid,
-    .visit-grid{
-        grid-template-columns:1fr;
-    }
-
-    .awards-grid{
-        gap:18px;
-    }
-
-    .award-card{
-        min-height:auto;
-        padding:24px;
-        border-radius:18px;
-    }
-
-    .award-card h3{
-        font-size:22px;
-    }
-
-    .services{
-        padding-block:72px;
-    }
-
-    .services-grid{
-        gap:44px;
-    }
-
-    .section-title{
-        font-size:clamp(42px,13vw,56px);
-        margin-bottom:34px;
-    }
-
-    .service-item{
-        grid-template-columns:30px minmax(0,1fr);
-        gap:16px;
-    }
-
-    .service-item h4{
-        font-size:22px;
-    }
-
-    .service-image-wrap{
-        padding-bottom:0;
-    }
-
-    .quote{
-        position:relative;
-        left:auto;
-        bottom:auto;
-        margin-top:-70px;
-        margin-inline:12px;
-        max-width:none;
-    }
-
-    .gallery{
-        padding-block:72px;
-    }
-
-    .gallery-head{
-        display:block;
-        margin-bottom:28px;
-    }
-
-    .gallery-head h2{
-        font-size:clamp(44px,14vw,58px);
-    }
-
-    .text-link{
-        display:inline-block;
-        margin-top:14px;
-    }
-
-    .gallery-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:14px;
-    }
-
-    .gallery-item{
-        border-radius:14px;
-    }
-
-    .visit{
-        padding-block:72px;
-    }
-
-    .visit-grid{
-        gap:42px;
-    }
-
-    .info-row{
-        font-size:16px;
-        align-items:flex-start;
-    }
-
-    .hours{
-        max-width:none;
-        font-size:15px;
-    }
-
-    .visit-img img{
-        height:auto;
-        aspect-ratio:1/1;
-        border-radius:24px;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
-    }
-}
-
-@media (max-width:420px){
-    .container{
-        padding-inline:18px;
-    }
-
-    .hero h1{
-        font-size:44px;
-    }
-
-    .section-title,
-    .gallery-head h2{
-        font-size:40px;
-    }
-
-    .hero-actions{
-        max-width:100%;
-    }
-
-    .award-card{
-        padding:22px;
-    }
-
-    .gallery-grid{
-        gap:12px;
-    }
-
-    .footer-links{
-        gap:14px;
-        font-size:13px;
-    }
-}
-</style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-glow {
+            box-shadow: 0 20px 50px -12px rgba(197, 179, 88, 0.15);
+        }
+        .gold-glow-hover:hover {
+            box-shadow: 0 25px 60px -12px rgba(197, 179, 88, 0.25);
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#cfc5b9",
+                        "on-secondary-fixed-variant": "#524700",
+                        "surface-container-low": "#fbf2ed",
+                        "primary-fixed-dim": "#dac3a3",
+                        "tertiary-container": "#cbc2b7",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#dac769",
+                        "surface-bright": "#fff8f5",
+                        "on-secondary-fixed": "#211b00",
+                        "on-primary-fixed-variant": "#54442c",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "tertiary": "#645d55",
+                        "surface-container": "#f5ece7",
+                        "surface-tint": "#6d5c42",
+                        "on-primary-fixed": "#251a05",
+                        "surface-variant": "#e9e1dc",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#4c463d",
+                        "outline": "#7e766b",
+                        "tertiary-fixed-dim": "#cec5ba",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e9e1dc",
+                        "inverse-primary": "#dac3a3",
+                        "on-primary-container": "#5e4e35",
+                        "surface-dim": "#e1d8d4",
+                        "on-tertiary-container": "#564f47",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#efe6e2",
+                        "primary": "#6d5c42",
+                        "secondary-container": "#f7e382",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#6c5e06",
+                        "inverse-on-surface": "#f8efea",
+                        "on-background": "#1e1b18",
+                        "primary-container": "#d6c0a0",
+                        "on-secondary-container": "#73640e",
+                        "on-tertiary-fixed-variant": "#4c463e",
+                        "on-surface": "#1e1b18",
+                        "tertiary-fixed": "#ebe1d6",
+                        "secondary-fixed": "#f7e382",
+                        "background": "#fff8f5",
+                        "on-tertiary-fixed": "#1f1b14",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fff8f5",
+                        "inverse-surface": "#34302c",
+                        "primary-fixed": "#f7dfbe"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Syne"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Syne"],
+                        "headline-xl": ["Syne"],
+                        "label-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
 </head>
-
-<body>
-<nav class="nav">
-    <div class="container nav-inner">
-        <span class="brand">Befon Lak</span>
-
-        <div class="nav-links">
-            <a class="nav-link active" href="#szolgaltatasok">Szolgáltatások</a>
-            <a class="nav-link" href="#galeria">Galéria</a>
-            <a class="nav-link" href="#dijak">Díjak</a>
-            <a class="nav-link" href="#kapcsolat">Kapcsolat</a>
-            <a class="btn btn-primary" href="#kapcsolat">Időpontfoglalás</a>
-        </div>
-    </div>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-xl shadow-sm dark:shadow-none border-b border-tertiary/20">
+<div class="flex justify-between items-center h-20 px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="text-headline-md font-headline-md tracking-tight text-on-surface">Befon Lak</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Gallery</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Awards</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Contact</a>
+</div>
+<button class="bg-[#2D2926] text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all duration-300 active:scale-95">
+                Book Appointment
+            </button>
+</div>
 </nav>
-
-<main>
-<section class="container hero">
-    <div class="hero-copy">
-        <h1>Befon Lak</h1>
-        <p>A fonás művészete Győr szívében</p>
-
-        <div class="hero-actions">
-            <a class="btn btn-primary" href="#kapcsolat">Időpontfoglalás</a>
-            <a class="btn btn-ghost" href="#galeria">Galéria megtekintése</a>
-        </div>
-    </div>
-
-    <div class="hero-media">
-        <img alt="Professzionális hajfonás közeli fotója" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmklgILwYsZRWwtC6z4nQaWkLz0a6RxI0ZMt0iERyg270R0sypnD2aTgUvk1l3NEzADLNUEBEDbCGPYYbNIRNyIkO899nMIoZfjZ1af0V_NYFc7chHGvMLjwzLgG9K2Y6VtDC9f9YUj6pWahPl3JqzWl3SUiz081x-Z1kvgwKIE4DVbpeflBtw8sqiV1kJKww3sFRLKwjX6fpKz8mabZlUnEjRtYp-Sw9o0G5w3pt1Jd7ONXKA0ITm5hDTKK0dwu9CnMNcTJBB8B9x"/>
-    </div>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[20%] brightness-95" data-alt="A cinematic, high-fashion portrait of an intricate professional hair braiding design. The lighting is soft and ethereal, using the 'Luminous Artistry' aesthetic with warm pearlescent tones. The background is a minimalist, out-of-focus high-end salon interior in Győr. The overall mood is sophisticated, artistic, and serene, highlighting the detailed textures of the braids against a soft sand color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoy_GVXnHvJH02ERxuPMulVzC1dih16cd0Fd3Lv8oTnPTlIKKr37ssxz8ZP4zRi7awzXT69tn5V_mtHRMBUcygEL8KViUHVX2_YiQN4fTIJaZVzeYRIHrF-Tc-3xmvv8p4qn8GlChNeC7gxziwpMLlAcx4sX2KjqPgSuTf69xXyNSfX3TmsjqAPt7vBeN_nm8IaKnM0NZl-8Wxqzj-O2FPdlA9Q8w8EpAJZhG53fRz78VFGXkmtJfY_uUUsbhZF3XePj5-uoom6iSO"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 px-margin-desktop max-w-screen-2xl mx-auto w-full">
+<div class="max-w-2xl space-y-8">
+<h1 class="font-headline-xl text-headline-xl text-on-surface">Befon Lak</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.</p>
+<div class="flex gap-6">
+<button class="bg-[#2D2926] text-white px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all">
+                            Időpontfoglalás
+                        </button>
+<button class="border border-outline-variant px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-all">
+                            Galéria megtekintése
+                        </button>
+</div>
+</div>
+</div>
 </section>
-
-<section class="awards" id="dijak">
-    <div class="container">
-        <div class="awards-grid">
-            <div class="glass-card award-card teal-glow">
-                <div class="award-icon award-gradient-silver">
-                    <span class="material-symbols-outlined text-black" style="font-variation-settings:'FILL' 1;">emoji_events</span>
-                </div>
-                <span class="eyebrow">2023</span>
-                <h3>Vivihajműhely Online Kupa</h3>
-                <p>2. helyezés – Professzionális fonási kategória</p>
-            </div>
-
-            <div class="glass-card award-card teal-glow">
-                <div class="award-icon" style="background:var(--primary);box-shadow:0 0 15px rgba(83,221,216,.6);">
-                    <span class="material-symbols-outlined" style="color:#003735;font-variation-settings:'FILL' 1;">auto_awesome</span>
-                </div>
-                <span class="eyebrow">2025</span>
-                <h3>MFKKE Bajnokság</h3>
-                <p>Címlapfotó és kiemelt művész</p>
-            </div>
-
-            <div class="glass-card award-card teal-glow">
-                <div class="award-icon award-gradient-bronze">
-                    <span class="material-symbols-outlined text-black" style="font-variation-settings:'FILL' 1;">military_tech</span>
-                </div>
-                <span class="eyebrow">Versenyek</span>
-                <h3>MFKKE Online Kupa</h3>
-                <p>3. és 5. helyezett többszörös díjazott</p>
-            </div>
-        </div>
-    </div>
+<!-- Awards Section -->
+<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="text-center mb-20">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Elismerések</span>
+<h2 class="font-headline-lg text-headline-lg mt-4">Díjazott Szakértelem</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Award Card 1 -->
+<div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all">
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="emoji_events">emoji_events</span>
+<h3 class="font-headline-md text-headline-md">Vivihajműhely Online Kupa</h3>
+<p class="font-body-md text-on-surface-variant">2023 — 2. helyezett</p>
+<div class="w-12 h-px bg-outline-variant"></div>
+</div>
+<!-- Award Card 2 -->
+<div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all scale-105 z-10 shadow-xl shadow-primary/5">
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md">MFKKE Bajnokság</h3>
+<p class="font-body-md text-on-surface-variant">2025 — Cover photo különdíj</p>
+<div class="w-12 h-px bg-outline-variant"></div>
+</div>
+<!-- Award Card 3 -->
+<div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all">
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="military_tech">military_tech</span>
+<h3 class="font-headline-md text-headline-md">MFKKE Online Kupa</h3>
+<p class="font-body-md text-on-surface-variant">3. és 5. helyezés</p>
+<div class="w-12 h-px bg-outline-variant"></div>
+</div>
+</div>
 </section>
-
-<section class="services" id="szolgaltatasok">
-    <div class="container services-grid">
-        <div>
-            <h2 class="section-title">Professzionális <span class="accent">Hajfonás</span></h2>
-
-            <div class="service-list">
-                <div class="service-item">
-                    <span class="material-symbols-outlined">stylus</span>
-                    <div>
-                        <h4>Digitális hajtervezés</h4>
-                        <p>Személyre szabott digitális tervezés és konzultáció az egyedi igények megvalósításához.</p>
+<!-- Services Section -->
+<section class="py-section-gap bg-surface-container-low overflow-hidden">
+<div class="px-margin-desktop max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-20 items-center">
+<div class="w-full md:w-1/2 space-y-12">
+<div class="space-y-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Szolgáltatások</span>
+<h2 class="font-headline-lg text-headline-lg">Professzionális Hajfonás</h2>
+</div>
+<ul class="space-y-8">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-headline-md text-[20px]">Digitális hajtervezés</h4>
+<p class="text-on-surface-variant mt-2">Személyre szabott konzultáció és vizuális tervezés a tökéletes forma eléréséhez.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-headline-md text-[20px]">Alkalmi hajfonás</h4>
+<p class="text-on-surface-variant mt-2">Esküvői, báli és ünnepi frizurák, melyek egész nap és éjjel tartanak.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-headline-md text-[20px]">Művészeti workshopok</h4>
+<p class="text-on-surface-variant mt-2">Szakmai továbbképzések és élményfonás kezdőknek és haladóknak egyaránt.</p>
+</div>
+</li>
+</ul>
+<div class="p-8 border-l-4 border-primary bg-surface/50 italic font-body-lg text-body-lg text-on-surface">
+                        "A hajad a koronád, én pedig segítek, hogy minden nap méltósággal viselhesd."
                     </div>
-                </div>
-
-                <div class="service-item">
-                    <span class="material-symbols-outlined">celebration</span>
-                    <div>
-                        <h4>Alkalmi hajfonás</h4>
-                        <p>Esküvőkre, fotózásokra és különleges eseményekre készített tartós és látványos fonatok.</p>
-                    </div>
-                </div>
-
-                <div class="service-item">
-                    <span class="material-symbols-outlined">school</span>
-                    <div>
-                        <h4>Művészeti workshopok</h4>
-                        <p>Szakmai továbbképzések és workshopok a fonás művészetének elsajátításához.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="service-image-wrap">
-            <div class="glass-card service-image">
-                <img alt="Komplex fonott frizura portréfotója" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKKV2pRPm64W29FOxnHoNyJFzxQDrMTQAnmpawbAniVf4hSIVruMXJOd4sZWyjBpQUt62XAKBJByUMXyFJtHAKZTKV-vuNanwci14NBvVmw9v7leuf0nYJAamemiAcRtpZUXbAnb_icK5N5yqXw69Tr2KTGCzPQzqn7fJo4sU9sW5QN-nzPKhnLZ7k6eybZ-2lG1zyn0u4Yv6TCO1lJZ2m99ztgCmFfqA1aMUF0WZe6v1nDxhqx49PSowIJsQUm5DzKwzlVh9hwqym"/>
-            </div>
-
-            <div class="glass-card quote">
-                <p>"A hajad a koronád, én pedig segítek, hogy minden nap méltósággal viselhesd."</p>
-            </div>
-        </div>
-    </div>
+</div>
+<div class="w-full md:w-1/2 relative">
+<div class="absolute -inset-4 border border-primary/20 translate-x-8 translate-y-8"></div>
+<img class="relative z-10 aspect-[4/5] object-cover w-full gold-glow" data-alt="A high-quality close-up image showing the intricate process of professional hair braiding. The hands of the artist are visible, working with precision on a complex pattern. The lighting is warm and directional, creating soft shadows that emphasize the texture and structure of the braids. The aesthetic is clean and luxurious, consistent with a high-end salon in Hungary, featuring soft neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUDcyqd6tJlFmoARInXM7iYG7PeqffrXom0934tpCRiKZ7YjgMUWppvzhRibz54kWUKN5jI9_OtAky4hhLpsdMFLZqoWGvp-T0OTliKw_K86deOoJYts2e-zXKRM9qK1eVi0ojLUjm9VsCuaWPJ258KT9jA9vskYF6qXrWDNQ4Iyd9baYJ0in6z6Fk9Lq3jJMEdRfSKkYbBHXN0Himvaona4__nglqImk-LHEfZGNjSSEs8P7Oz_z_H9lFlw3bTf4v5-eSRKaCFEn6"/>
+</div>
+</div>
 </section>
-
-<section class="gallery" id="galeria">
-    <div class="container">
-        <div class="gallery-head">
-            <div>
-                <h2>Galéria</h2>
-                <p>Professzionális hajfonási munkák</p>
-            </div>
-
-            <button class="text-link">Összes munka megtekintése</button>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="glass-card gallery-item">
-                <img alt="Halfarkas fonás világosbarna hajon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbShgEQhkDsBec4hldplZhAcNl9zL3TcawWFW_pDpmYTp0TRYvb3Lq1LsMkp1UWT9BF5_Pdq5Xks9YaGoJQdeHklxk7pUhyAX1P4xEtH1FhMyICZbjI1DzDFXl2mA0GrsEGXkjZI-CJen7B2GE1jfFEHo8OvzzIeRsAvdfFsk_YNW4cOvUmMf83_uUydpHmWZep2hTfIjxxWVZQfe1ZoFF3BXJR6u6iKaGtE3OFvTTWxFvZFPxSt4WjYd2mTYDpFDlomsWFI7rAiH7"/>
-            </div>
-
-            <div class="glass-card gallery-item">
-                <img alt="Holland fonás közeli részlet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcAb5fyDeW_DTqJz34zTORDyN1JxN14XX1MhZ5I2JMeVR86oqEpVzmRfgcaDpxrPLC395Hbq3YGLMzghBosaFREJM07vetwFwAkNMrZDUBb-O5KSezt9mzQS-stEC4gS2E9buqND7H8DVD_-juvGs3FCunY72Kra-z6Bpu39kIA-loIGPQgHnwohYiZJd7CB0DbHnzEjIZnoT5GB_KzbnzWrGYtLtvisjecskaogn4KE1YBF79CMsz9h0sJtapSsyIEcF9zYuNCnd5"/>
-            </div>
-
-            <div class="glass-card gallery-item">
-                <img alt="Színes póthajas fonás" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC98oMO2_aSfoIw5QIkPOQtL97LKSEEwuVNz8gUKJSg2LiwtYljrs131kEVoQ0wgHqI2MNIrazlEr6tSq2Hly9yiH6g7yQmXzEPfBF_S1QZftd-MMBmoZU9TvBbIFQQdGs9sVZlCjVxkbd0M0q517-ktSS9ILABE7DoUHfU2EC7yc4eZICO9XG-sMzO5AtKHx4_JlvyvKkyoUQUVMjnBGQH4TTHRqTWpy5ROtPFQMtLvZidSXmKRaxDARx3hgVF7XWjm5FS_OvSWDs6"/>
-            </div>
-
-            <div class="glass-card gallery-item">
-                <img alt="Alkalmi menyasszonyi fonás virágdísszel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQIyMdonH5qOZxvQwiITQRbVyKOhaxksADk4cS6cXnSVAjatn4dUFx1TBSt-Gk4u_JxdPsfm6TtGUUFeznpJVTzeZtxuUSHCRk1PrwsYwZw7xOvDImIon-B-8_cGFnkaKvOHugfGOOwtnHReN1BN1598x_GDRstqnly3QEmRRJhQsERzI-VQXjuXxm0QVe7OKbiPXwem2lAqYm9JFwkFnzro3B3-DpcJFTAaeh0kKiOFhqYhL9Hahv9cmf-tUaKsYzshTqJi9Ts-HR"/>
-            </div>
-
-            <div class="glass-card gallery-item">
-                <img alt="Geometrikus választékok és precíz fonás" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4RID97L-BCVczv0T4LnyTwvkB8_bHRtSzKtgrHX7vAXL3LJAR_CecaLCkoWau302IznhropKKR1Mf9HvuN2vqZ0990jLykSOHHQ_jRut4jo4-sbbR5ylWOsovv9PTo4EmFPt-rH4S91FOWaJJhzuhI_KcWz-WG5ZKRdDHbTINXJT3CEViyH-vexTLh4YJyn1Hl57nx3B-6fPYAVMjjNckowmWWaaydxQeY1GFdGbp7q-4apiTfeFuzBMqWQGPffDUT_vNL26UkHt6"/>
-            </div>
-
-            <div class="glass-card gallery-item">
-                <img alt="Koronaszerű fonott hajdizájn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr1UF0z6FLJ2fuPCFDcN667rRWKTm-ZmPlvasc4pTcpM9zGLNgfsIXCowYhX_NUJ6d2BlYaPGeW0pHwqrKHmg9i5fMS2JmfbhcW5zlSeFENe_CpX_1svBBUZXwraPvl7xnt1Ed9Pumlx7ZrtOQD0jdmZPDn-ivqnPM9Pf261afL_oSf2NmhJbjyt1huaoSNg1feM9iGFEsht-rM67M8EppEq_35M7utjq1Hb6Wh9X-yQrdXvRPtd5m2k9ldE5R4TjQoI7yHqN5HBf_"/>
-            </div>
-        </div>
-    </div>
+<!-- Gallery Section -->
+<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="text-center mb-20 space-y-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Galéria</span>
+<h2 class="font-headline-lg text-headline-lg">Munkáink</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[300px]">
+<div class="col-span-2 row-span-2 overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A stunning gallery-worthy photograph of an avant-garde braided hairstyle. The design is sculptural and complex, presented against a clean, minimalist background. The lighting is editorial and high-contrast, highlighting the pearlescent sheen of the hair and the meticulous craftsmanship. This image represents the pinnacle of salon artistry in Győr, Hungary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOuSmI_yWO1z9fFgCgoU05vaJOQJfPwSIHCwYI8eOJiFIp9UrLSxcpBFQQaxMCgWbcAENUS9oiGeeVCbYszgyRH1cAEEFYpl4uElRAyv94Ut7yNQQ7wSpkZNbYZsgGG5lIC0AricmLGdNUwlz-r3PEWFvKqQCGKSFlBXQ8XkgvHGyV6fTAcah7xtYg7ykjUljO278U88AYAdr1iA7TmoztQmt_1WmsRFBkivyxxem3GWBXbqYpLq4nbTfkYAj9cDaRO70UbdTdfAr9"/>
+</div>
+<div class="col-span-1 row-span-1 overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detailed shot of tight, symmetrical braids, demonstrating extreme precision and technical skill. The color palette is warm and natural, fitting the Luminous Artistry design system. The setting is bright and clean, emphasizing a professional salon environment with a calm and sophisticated atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXOwB26dCiURsyjKOv1lT5DrauRf2Lh7tNdfkTHFXS-evoXn2UNVa4l3ZN5Eow81I92QaVRqVX13TxplXuOMJQWjjYklVxej38cpVWI15itW07Pv0hKv4qxu7CMX1k5cWW1s-sEhGH3dWWBSqnuJpOPnT19VqRJEcisnf2dBnPICgjI2NAIGq4t8aM5WuFJcxhb7xANqPENg2vS9eP8NN_ZpgZxxbFqMBozg4ZBY15HkMHbzyMyYvRM-XwwivD2icZGyBmBXU5q245"/>
+</div>
+<div class="col-span-1 row-span-2 overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An elegant, soft braided updo suitable for a wedding or formal event. The hair is styled with subtle pearlescent hair accessories that catch the soft studio lighting. The overall mood is romantic and refined, showcasing the versatile range of services offered at Befon Lak in Győr." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDieF1YnvduUSb551jvUq8eyOpcI3n3ouQcAvlUoPhQP61E_NW6Y1xHZe7-DUwXa7YYPUqMnSKvmwnfaHy0TMHRAn7o-G-cWf8sEl3zn_E1xWm4nckm5j-E0QMDfVYBt4yqe0_1r2ucdtEKhq_cLUs9sTzZodxJXD5bmRH_vkki-9C_z0TLBUPFWtg1AG1XCdrhoJfoR0nPZuihcs1vmj9F8yctntzDKgdYcNlTL7cOpn_LciucBdK_TP3Ft66rp87DxNLNi09KVa87"/>
+</div>
+<div class="col-span-1 row-span-1 overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Creative hair braiding featuring geometric patterns and clean partings. The image is a close-up that highlights the artistic integrity and perfectionist approach of the stylist. The lighting is diffused and flattering, creating a high-end boutique aesthetic with a focus on artisanal quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfUrlcJy62CF5K7A0uyh23tROQgsC78wcK1U2rAsUwKoB4O6IoK-roZ43TWEXICRbSX6lbmEsX9BeUWkvJyyeqOhRn7z17wYnSxCTxLXf6zy3y9ExrT2I-CBg1q1D5-Wvd-FJlgE5KEYgEW4FIfx6WAd-oCV-2U7H_xSlPrPJFPDMYEqnhzWzRXJhSUEG-f6reDTXBJff-5bg59kKga117VasktvbZ3bwSvaCtc4Le7TwDq0L5o4aCZw89gt7L7PrspRqHpn1m_PM3"/>
+</div>
+</div>
 </section>
-
-<section class="visit" id="kapcsolat">
-    <div class="container visit-grid">
-        <div>
-            <h2 class="section-title">Látogasd meg a <span class="accent">Győri Szalont</span></h2>
-
-            <div class="info-list">
-                <div class="info-row">
-                    <span class="material-symbols-outlined">location_on</span>
-                    <span>Győr, Magyarország</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="material-symbols-outlined">history</span>
-                    <span>Professzionális hajművész 1986 óta</span>
-                </div>
-
-                <div class="info-row">
-                    <span class="material-symbols-outlined">alternate_email</span>
-                    <span>Instagram: @befonlak</span>
-                </div>
-            </div>
-
-            <h4 class="hours-title">Nyitvatartás</h4>
-
-            <ul class="hours">
-                <li><span>Hétfő – Péntek</span><span>09:00 – 18:00</span></li>
-                <li><span>Szombat</span><span>09:00 – 14:00</span></li>
-                <li><span>Vasárnap</span><span>Zárva</span></li>
-            </ul>
-        </div>
-
-        <div class="ghost-border visit-img">
-            <img alt="Győri szalon hangulatkép" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUtVn4xxjmm8mkYSv83rh8Mikmz3TK9DLtsodMyvpMYS4RZwvUhxA8Vz77kR7VpEOpSVYbIIVuAB-mPfC6Gtv8gIaTinYpEPDA8hg9-ld50sjy7ofiMSDY-UINefGOoHO6BcOoBZIeTZDY99fE7pncS17_SjEh9ptA4EYXrq5zpUd9D9zA1yhDDs8i3-MyCm6Xz9ah5jxobOR04NdzqZhRLfD_w_8lV6o17veV4YO4eGyQ7U2Y_HW0Qys2QiE_U1PmYRE8d1vA2ltR"/>
-        </div>
-    </div>
+<!-- Visit Section -->
+<section class="py-section-gap bg-surface-bright">
+<div class="px-margin-desktop max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+<div class="space-y-10">
+<div class="space-y-4">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Kapcsolat</span>
+<h2 class="font-headline-lg text-headline-lg">Látogasd meg a Győri Szalont</h2>
+</div>
+<div class="space-y-8">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="location_on">location_on</span>
+<p class="font-body-lg">9022 Győr, Hungary — Belváros</p>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="history">history</span>
+<p class="font-body-lg">Szakmai tapasztalat 1986 óta</p>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="photo_camera">photo_camera</span>
+<p class="font-body-lg">@befonlak — Kövess minket Instagramon</p>
+</div>
+</div>
+<div class="p-10 border border-outline-variant/30 space-y-6">
+<h4 class="font-headline-md">Nyitvatartás</h4>
+<div class="grid grid-cols-2 gap-4 font-body-md text-on-surface-variant">
+<span>Hétfő - Péntek:</span>
+<span class="text-on-surface">09:00 - 18:00</span>
+<span>Szombat:</span>
+<span class="text-on-surface">09:00 - 14:00</span>
+<span>Vasárnap:</span>
+<span class="text-on-surface">Zárva</span>
+</div>
+</div>
+</div>
+<div class="h-full min-h-[500px] relative">
+<img class="w-full h-full object-cover gold-glow" data-alt="A professional salon interior mood image for Befon Lak in Győr. The space is airy, minimalist, and high-end, featuring soft sand and pearlescent white tones. Elegant styling stations with large mirrors are visible, illuminated by soft, warm light that creates a sanctuary feel. The atmosphere is calm and meticulously curated, reflecting the 'Elevated Editorial Minimalism' design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmf8YveswkhtsNetRbwrKtWM3eK2JbY7NCaUJCRFOhpKfDN3QoU9ZK85HXiqQImna28S7UX5sfQj_BhVENgEHLMR2X7ldQt0w-pK0S4ey5_XZi62po2gK8I4ymt_iwdVvqRdAjgAx1rjhNKUyvYckIJOIz3aMig9Am5fO8zfG_AOkii-UNRWO8gCcJXe7WGr7nrEr-1b2tbdA0nQGm9u_MOn3R2Fe9KxMpWHtz-DdWoY4Kb9EvcE-sgjNwpDhsKj7tOlrGHu9wbvD9"/>
+</div>
+</div>
 </section>
 </main>
-
-<footer class="footer">
-    <div class="container footer-inner">
-        <div>
-            <div class="footer-brand">Befon Lak</div>
-            <p>© 2024 Befon Lak Győr. A fonás művészete.</p>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-low border-t border-tertiary/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="text-headline-md font-headline-md text-on-surface">Befon Lak</div>
+<p class="font-body-md text-on-surface-variant">Prémium hajfonó szalon Győrben. A minőség és az elegancia találkozása 1986 óta.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-icon="facebook">Notebook</span>
+<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-icon="photo_camera">photo_camera</span>
+</div>
+</div>
+<div class="space-y-6">
+<h5 class="font-label-sm text-label-sm text-primary uppercase">Navigáció</h5>
+<ul class="space-y-4 font-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Szolgáltatások</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Galéria</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Rólunk</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Időpontfoglalás</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="font-label-sm text-label-sm text-primary uppercase">Jogi nyilatkozat</h5>
+<ul class="space-y-4 font-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Sustainability</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#">Accessibility</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="font-label-sm text-label-sm text-primary uppercase">Hírlevél</h5>
+<p class="font-body-md text-on-surface-variant">Iratkozz fel híreinkre és ajánlatainkra.</p>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-2 px-0 focus:ring-0 focus:border-primary transition-all" placeholder="Email cím" type="email"/>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-20 text-center font-label-sm text-label-sm text-on-surface-variant opacity-60">
+            © 2024 Befon Lak. All rights reserved.
         </div>
-
-        <div class="footer-links">
-            <a href="#">Adatvédelmi szabályzat</a>
-            <a href="#">Felhasználási feltételek</a>
-            <span>Győr, Magyarország</span>
-        </div>
-
-        <div class="socials">
-            <a class="glass-card" href="#" aria-label="Weboldal">
-                <span class="material-symbols-outlined">public</span>
-            </a>
-            <a class="glass-card" href="#" aria-label="Instagram">
-                <span class="material-symbols-outlined">alternate_email</span>
-            </a>
-        </div>
-    </div>
 </footer>
-
-</body>
-</html>
+</body></html>
