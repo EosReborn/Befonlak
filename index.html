@@ -1,49 +1,41 @@
 <!DOCTYPE html>
-<html class="dark" lang="hu">
+<html lang="hu" class="dark">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Befon Lak</title>
 
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Manrope:wght@400;500;700&family=Material+Symbols+Outlined" rel="stylesheet">
 
 <style>
-.glass-card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(24px);
--webkit-backdrop-filter:blur(24px);
-border:1px solid rgba(255,255,255,0.15);
+body{
+    font-family:'Manrope',sans-serif;
 }
-.ghost-border{
-border:1px solid rgba(255,255,255,0.15);
+.title-font{
+    font-family:'Syne',sans-serif;
 }
-.award-gradient-silver{
-background:linear-gradient(135deg,#C0C0C0 0%,#E8E8E8 50%,#A9A9A9 100%);
+.glass{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.12);
 }
-.award-gradient-bronze{
-background:linear-gradient(135deg,#CD7F32 0%,#E3A869 50%,#8B4513 100%);
-}
-.teal-glow:hover{
-box-shadow:inset 0 0 20px rgba(83,221,216,0.2);
+.hero-img{
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,.95));
 }
 </style>
 
 <script>
 tailwind.config = {
-darkMode:"class",
 theme:{
 extend:{
 colors:{
-primary:"#53ddd8",
-background:"#131313",
-surface:"#131313",
-"surface-container-lowest":"#0e0e0e",
-"surface-container-low":"#1c1b1b",
-"on-surface":"#e5e2e1",
-"on-surface-variant":"#bbc9c8",
-"on-primary":"#003735"
+primary:'#53ddd8',
+bg:'#111111',
+card:'#1c1c1c',
+text:'#e5e2e1',
+muted:'#a8b1b0'
 }
 }
 }
@@ -51,336 +43,344 @@ surface:"#131313",
 </script>
 </head>
 
-<body class="bg-background text-on-surface selection:bg-primary selection:text-on-primary">
+<body class="bg-bg text-text overflow-x-hidden">
 
-<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/10">
-<div class="flex justify-between items-center px-12 py-4 max-w-7xl mx-auto">
+<!-- NAV -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-xl border-b border-white/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
 
-<span class="text-primary text-2xl font-bold">Befon Lak</span>
+<div class="text-primary font-bold text-xl title-font">
+Befon Lak
+</div>
 
-<div class="hidden md:flex gap-8 items-center">
-<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">Szolgáltatások</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Galéria</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Díjak</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Kapcsolat</a>
+<div class="hidden md:flex items-center gap-8 text-sm">
+<a href="#" class="text-primary font-semibold">Szolgáltatások</a>
+<a href="#" class="hover:text-primary transition">Galéria</a>
+<a href="#" class="hover:text-primary transition">Díjak</a>
+<a href="#" class="hover:text-primary transition">Kapcsolat</a>
 
-<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-bold hover:scale-95 transition-transform">
+<button class="bg-primary text-black font-bold px-5 py-2 rounded-full hover:scale-95 transition">
 Időpontfoglalás
 </button>
 </div>
+
 </div>
 </nav>
 
-<main class="pt-24">
+<!-- HERO -->
+<section class="relative pt-28 md:pt-36 pb-20">
 
-<section class="relative h-[819px] flex items-center px-12 max-w-7xl mx-auto overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center">
 
-<div class="z-10 max-w-2xl">
-<h1 class="text-7xl font-extrabold text-white mb-4" style="font-family:Syne;">
+<div class="relative z-10">
+
+<h1 class="title-font text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-none mb-6">
 Befon Lak
 </h1>
 
-<p class="text-3xl text-on-surface-variant mb-8">
+<p class="text-lg sm:text-2xl text-muted mb-8 max-w-xl">
 A fonás művészete Győr szívében
 </p>
 
-<div class="flex gap-4">
-<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg hover:shadow-[0_0_20px_rgba(83,221,216,0.4)] transition-all">
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-black font-bold px-8 py-4 rounded-full">
 Időpontfoglalás
 </button>
 
-<button class="ghost-border text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/5 transition-all">
+<button class="border border-white/20 px-8 py-4 rounded-full hover:bg-white/5 transition">
 Galéria megtekintése
 </button>
 </div>
+
 </div>
 
-<div class="absolute right-0 top-0 w-1/2 h-full opacity-60">
-<img class="w-full h-full object-cover rounded-bl-[120px]"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmklgILwYsZRWwtC6z4nQaWkLz0a6RxI0ZMt0iERyg270R0sypnD2aTgUvk1l3NEzADLNUEBEDbCGPYYbNIRNyIkO899nMIoZfjZ1af0V_NYFc7chHGvMLjwzLgG9K2Y6VtDC9f9YUj6pWahPl3JqzWl3SUiz081x-Z1kvgwKIE4DVbpeflBtw8sqiV1kJKww3sFRLKwjX6fpKz8mabZlUnEjRtYp-Sw9o0G5w3pt1Jd7ONXKA0ITm5hDTKK0dwu9CnMNcTJBB8B9x"/>
+<div class="relative flex justify-center lg:justify-end">
+
+<img
+class="hero-img w-full max-w-[520px] rounded-[40px] object-cover shadow-2xl"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmklgILwYsZRWwtC6z4nQaWkLz0a6RxI0ZMt0iERyg270R0sypnD2aTgUvk1l3NEzADLNUEBEDbCGPYYbNIRNyIkO899nMIoZfjZ1af0V_NYFc7chHGvMLjwzLgG9K2Y6VtDC9f9YUj6pWahPl3JqzWl3SUiz081x-Z1kvgwKIE4DVbpeflBtw8sqiV1kJKww3sFRLKwjX6fpKz8mabZlUnEjRtYp-Sw9o0G5w3pt1Jd7ONXKA0ITm5hDTKK0dwu9CnMNcTJBB8B9x">
+
+</div>
+
 </div>
 
 </section>
 
-<section class="py-24 px-12 max-w-7xl mx-auto">
+<!-- AWARDS -->
+<section class="pb-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="grid md:grid-cols-3 gap-6">
 
-<div class="glass-card p-8 rounded-xl teal-glow transition-all">
-<div class="w-12 h-12 rounded-full award-gradient-silver flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-black">emoji_events</span>
+<div class="glass rounded-3xl p-6">
+<div class="w-14 h-14 rounded-full bg-gray-200 text-black flex items-center justify-center mb-5">
+🏆
 </div>
 
-<span class="uppercase text-primary text-sm font-bold mb-2 block">
-2023
-</span>
+<p class="text-primary text-xs font-bold mb-2">2023</p>
 
-<h3 class="text-3xl font-bold mb-2">
+<h3 class="text-2xl font-bold mb-3">
 Vivihajműhely Online Kupa
 </h3>
 
-<p class="text-on-surface-variant">
+<p class="text-muted">
 2. helyezés – Professzionális fonási kategória
 </p>
 </div>
 
-<div class="glass-card p-8 rounded-xl teal-glow transition-all">
-<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-6 shadow-[0_0_15px_rgba(83,221,216,0.6)]">
-<span class="material-symbols-outlined text-on-primary">auto_awesome</span>
+<div class="glass rounded-3xl p-6">
+<div class="w-14 h-14 rounded-full bg-primary text-black flex items-center justify-center mb-5">
+✨
 </div>
 
-<span class="uppercase text-primary text-sm font-bold mb-2 block">
-2025
-</span>
+<p class="text-primary text-xs font-bold mb-2">2025</p>
 
-<h3 class="text-3xl font-bold mb-2">
+<h3 class="text-2xl font-bold mb-3">
 MFKKE Bajnokság
 </h3>
 
-<p class="text-on-surface-variant">
+<p class="text-muted">
 Címlapfotó és kiemelt művész
 </p>
 </div>
 
-<div class="glass-card p-8 rounded-xl teal-glow transition-all">
-<div class="w-12 h-12 rounded-full award-gradient-bronze flex items-center justify-center mb-6">
-<span class="material-symbols-outlined text-black">military_tech</span>
+<div class="glass rounded-3xl p-6">
+<div class="w-14 h-14 rounded-full bg-orange-300 text-black flex items-center justify-center mb-5">
+🥉
 </div>
 
-<span class="uppercase text-primary text-sm font-bold mb-2 block">
-Versenyek
-</span>
+<p class="text-primary text-xs font-bold mb-2">Versenyek</p>
 
-<h3 class="text-3xl font-bold mb-2">
+<h3 class="text-2xl font-bold mb-3">
 MFKKE Online Kupa
 </h3>
 
-<p class="text-on-surface-variant">
+<p class="text-muted">
 3. és 5. helyezett többszörös díjazott
 </p>
 </div>
 
 </div>
+
+</div>
 </section>
 
-<section class="py-24 bg-surface-container-lowest">
+<!-- SERVICES -->
+<section class="py-20 bg-black/40">
 
-<div class="px-12 max-w-7xl mx-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
 
-<div class="flex flex-col md:flex-row gap-16 items-center">
+<div>
 
-<div class="w-full md:w-1/2">
-
-<h2 class="text-6xl font-extrabold mb-8" style="font-family:Syne;">
+<h2 class="title-font text-5xl sm:text-6xl font-extrabold leading-none mb-10">
 Professzionális
 <span class="text-primary">Hajfonás</span>
 </h2>
 
 <div class="space-y-8">
 
-<div class="flex gap-6 items-start">
-<span class="material-symbols-outlined text-primary text-3xl">stylus</span>
+<div class="flex gap-5">
+<div class="text-primary text-3xl">✎</div>
 
 <div>
-<h4 class="text-3xl font-bold mb-2">
+<h3 class="text-2xl font-bold mb-2">
 Digitális hajtervezés
-</h4>
+</h3>
 
-<p class="text-on-surface-variant">
+<p class="text-muted">
 Személyre szabott digitális tervezés és konzultáció az egyedi igények megvalósításához.
 </p>
 </div>
 </div>
 
-<div class="flex gap-6 items-start">
-<span class="material-symbols-outlined text-primary text-3xl">celebration</span>
+<div class="flex gap-5">
+<div class="text-primary text-3xl">✦</div>
 
 <div>
-<h4 class="text-3xl font-bold mb-2">
+<h3 class="text-2xl font-bold mb-2">
 Alkalmi hajfonás
-</h4>
+</h3>
 
-<p class="text-on-surface-variant">
-Esküvőkre, fotózásokra és különleges eseményekre készített tartós és látványos fonatok.
+<p class="text-muted">
+Esküvőkre, fotózásokra és különleges eseményekre készített látványos fonatok.
 </p>
 </div>
 </div>
 
-<div class="flex gap-6 items-start">
-<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<div class="flex gap-5">
+<div class="text-primary text-3xl">⬡</div>
 
 <div>
-<h4 class="text-3xl font-bold mb-2">
+<h3 class="text-2xl font-bold mb-2">
 Művészeti workshopok
-</h4>
+</h3>
 
-<p class="text-on-surface-variant">
+<p class="text-muted">
 Szakmai továbbképzések és workshopok a fonás művészetének elsajátításához.
 </p>
 </div>
 </div>
 
 </div>
+
 </div>
 
-<div class="w-full md:w-1/2 relative">
+<div class="relative">
 
-<div class="aspect-square glass-card rounded-3xl overflow-hidden p-4">
-<img class="w-full h-full object-cover rounded-2xl"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKKV2pRPm64W29FOxnHoNyJFzxQDrMTQAnmpawbAniVf4hSIVruMXJOd4sZWyjBpQUt62XAKBJByUMXyFJtHAKZTKV-vuNanwci14NBvVmw9v7leuf0nYJAamemiAcRtpZUXbAnb_icK5N5yqXw69Tr2KTGCzPQzqn7fJo4sU9sW5QN-nzPKhnLZ7k6eybZ-2lG1zyn0u4Yv6TCO1lJZ2m99ztgCmFfqA1aMUF0WZe6v1nDxhqx49PSowIJsQUm5DzKwzlVh9hwqym"/>
+<div class="glass rounded-[32px] p-4">
+<img
+class="rounded-[24px] w-full object-cover"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKKV2pRPm64W29FOxnHoNyJFzxQDrMTQAnmpawbAniVf4hSIVruMXJOd4sZWyjBpQUt62XAKBJByUMXyFJtHAKZTKV-vuNanwci14NBvVmw9v7leuf0nYJAamemiAcRtpZUXbAnb_icK5N5yqXw69Tr2KTGCzPQzqn7fJo4sU9sW5QN-nzPKhnLZ7k6eybZ-2lG1zyn0u4Yv6TCO1lJZ2m99ztgCmFfqA1aMUF0WZe6v1nDxhqx49PSowIJsQUm5DzKwzlVh9hwqym">
 </div>
 
-<div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl max-w-xs">
-<p class="italic">
+<div class="glass absolute bottom-4 left-4 md:-bottom-6 md:-left-6 p-5 rounded-2xl max-w-xs">
+<p class="italic text-sm sm:text-base">
 "A hajad a koronád, én pedig segítek, hogy minden nap méltósággal viselhesd."
 </p>
 </div>
 
 </div>
-</div>
+
 </div>
 </section>
 
-<section class="py-24 px-12 max-w-7xl mx-auto">
+<!-- GALLERY -->
+<section class="py-20">
 
-<div class="flex justify-between items-end mb-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+<div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-10">
 
 <div>
-<h2 class="text-6xl font-extrabold" style="font-family:Syne;">
+<h2 class="title-font text-5xl sm:text-6xl font-extrabold mb-2">
 Galéria
 </h2>
 
-<p class="text-on-surface-variant mt-2">
+<p class="text-muted">
 Professzionális hajfonási munkák
 </p>
 </div>
 
-<button class="text-primary font-bold hover:underline">
+<button class="text-primary font-bold">
 Összes munka megtekintése
 </button>
 
 </div>
 
-<div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
 
-<img class="rounded-xl hover:scale-105 transition duration-500"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbShgEQhkDsBec4hldplZhAcNl9zL3TcawWFW_pDpmYTp0TRYvb3Lq1LsMkp1UWT9BF5_Pdq5Xks9YaGoJQdeHklxk7pUhyAX1P4xEtH1FhMyICZbjI1DzDFXl2mA0GrsEGXkjZI-CJen7B2GE1jfFEHo8OvzzIeRsAvdfFsk_YNW4cOvUmMf83_uUydpHmWZep2hTfIjxxWVZQfe1ZoFF3BXJR6u6iKaGtE3OFvTTWxFvZFPxSt4WjYd2mTYDpFDlomsWFI7rAiH7"/>
+<img class="rounded-2xl object-cover aspect-[4/5] hover:scale-[1.02] transition"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbShgEQhkDsBec4hldplZhAcNl9zL3TcawWFW_pDpmYTp0TRYvb3Lq1LsMkp1UWT9BF5_Pdq5Xks9YaGoJQdeHklxk7pUhyAX1P4xEtH1FhMyICZbjI1DzDFXl2mA0GrsEGXkjZI-CJen7B2GE1jfFEHo8OvzzIeRsAvdfFsk_YNW4cOvUmMf83_uUydpHmWZep2hTfIjxxWVZQfe1ZoFF3BXJR6u6iKaGtE3OFvTTWxFvZFPxSt4WjYd2mTYDpFDlomsWFI7rAiH7">
 
-<img class="rounded-xl hover:scale-105 transition duration-500"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcAb5fyDeW_DTqJz34zTORDyN1JxN14XX1MhZ5I2JMeVR86oqEpVzmRfgcaDpxrPLC395Hbq3YGLMzghBosaFREJM07vetwFwAkNMrZDUBb-O5KSezt9mzQS-stEC4gS2E9buqND7H8DVD_-juvGs3FCunY72Kra-z6Bpu39kIA-loIGPQgHnwohYiZJd7CB0DbHnzEjIZnoT5GB_KzbnzWrGYtLtvisjecskaogn4KE1YBF79CMsz9h0sJtapSsyIEcF9zYuNCnd5"/>
+<img class="rounded-2xl object-cover aspect-[4/5] hover:scale-[1.02] transition"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcAb5fyDeW_DTqJz34zTORDyN1JxN14XX1MhZ5I2JMeVR86oqEpVzmRfgcaDpxrPLC395Hbq3YGLMzghBosaFREJM07vetwFwAkNMrZDUBb-O5KSezt9mzQS-stEC4gS2E9buqND7H8DVD_-juvGs3FCunY72Kra-z6Bpu39kIA-loIGPQgHnwohYiZJd7CB0DbHnzEjIZnoT5GB_KzbnzWrGYtLtvisjecskaogn4KE1YBF79CMsz9h0sJtapSsyIEcF9zYuNCnd5">
 
-<img class="rounded-xl hover:scale-105 transition duration-500"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuC98oMO2_aSfoIw5QIkPOQtL97LKSEEwuVNz8gUKJSg2LiwtYljrs131kEVoQ0wgHqI2MNIrazlEr6tSq2Hly9yiH6g7yQmXzEPfBF_S1QZftd-MMBmoZU9TvBbIFQQdGs9sVZlCjVxkbd0M0q517-ktSS9ILABE7DoUHfU2EC7yc4eZICO9XG-sMzO5AtKHx4_JlvyvKkyoUQUVMjnBGQH4TTHRqTWpy5ROtPFQMtLvZidSXmKRaxDARx3hgVF7XWjm5FS_OvSWDs6"/>
+<img class="rounded-2xl object-cover aspect-[4/5] hover:scale-[1.02] transition"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuC98oMO2_aSfoIw5QIkPOQtL97LKSEEwuVNz8gUKJSg2LiwtYljrs131kEVoQ0wgHqI2MNIrazlEr6tSq2Hly9yiH6g7yQmXzEPfBF_S1QZftd-MMBmoZU9TvBbIFQQdGs9sVZlCjVxkbd0M0q517-ktSS9ILABE7DoUHfU2EC7yc4eZICO9XG-sMzO5AtKHx4_JlvyvKkyoUQUVMjnBGQH4TTHRqTWpy5ROtPFQMtLvZidSXmKRaxDARx3hgVF7XWjm5FS_OvSWDs6">
 
-<img class="rounded-xl hover:scale-105 transition duration-500"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQIyMdonH5qOZxvQwiITQRbVyKOhaxksADk4cS6cXnSVAjatn4dUFx1TBSt-Gk4u_JxdPsfm6TtGUUFeznpJVTzeZtxuUSHCRk1PrwsYwZw7xOvDImIon-B-8_cGFnkaKvOHugfGOOwtnHReN1BN1598x_GDRstqnly3QEmRRJhQsERzI-VQXjuXxm0QVe7OKbiPXwem2lAqYm9JFwkFnzro3B3-DpcJFTAaeh0kKiOFhqYhL9Hahv9cmf-tUaKsYzshTqJi9Ts-HR"/>
+<img class="rounded-2xl object-cover aspect-[4/5] hover:scale-[1.02] transition"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQIyMdonH5qOZxvQwiITQRbVyKOhaxksADk4cS6cXnSVAjatn4dUFx1TBSt-Gk4u_JxdPsfm6TtGUUFeznpJVTzeZtxuUSHCRk1PrwsYwZw7xOvDImIon-B-8_cGFnkaKvOHugfGOOwtnHReN1BN1598x_GDRstqnly3QEmRRJhQsERzI-VQXjuXxm0QVe7OKbiPXwem2lAqYm9JFwkFnzro3B3-DpcJFTAaeh0kKiOFhqYhL9Hahv9cmf-tUaKsYzshTqJi9Ts-HR">
 
-<img class="rounded-xl hover:scale-105 transition duration-500"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4RID97L-BCVczv0T4LnyTwvkB8_bHRtSzKtgrHX7vAXL3LJAR_CecaLCkoWau302IznhropKKR1Mf9HvuN2vqZ0990jLykSOHHQ_jRut4jo4-sbbR5ylWOsovv9PTo4EmFPt-rH4S91FOWaJJhzuhI_KcWz-WG5ZKRdDHbTINXJT3CEViyH-vexTLh4YJyn1Hl57nx3B-6fPYAVMjjNckowmWWaaydxQeY1GFdGbp7q-4apiTfeFuzBMqWQGPffDUT_vNL26UkHt6"/>
+<img class="rounded-2xl object-cover aspect-[4/5] hover:scale-[1.02] transition"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4RID97L-BCVczv0T4LnyTwvkB8_bHRtSzKtgrHX7vAXL3LJAR_CecaLCkoWau302IznhropKKR1Mf9HvuN2vqZ0990jLykSOHHQ_jRut4jo4-sbbR5ylWOsovv9PTo4EmFPt-rH4S91FOWaJJhzuhI_KcWz-WG5ZKRdDHbTINXJT3CEViyH-vexTLh4YJyn1Hl57nx3B-6fPYAVMjjNckowmWWaaydxQeY1GFdGbp7q-4apiTfeFuzBMqWQGPffDUT_vNL26UkHt6">
 
-<img class="rounded-xl hover:scale-105 transition duration-500"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr1UF0z6FLJ2fuPCFDcN667rRWKTm-ZmPlvasc4pTcpM9zGLNgfsIXCowYhX_NUJ6d2BlYaPGeW0pHwqrKHmg9i5fMS2JmfbhcW5zlSeFENe_CpX_1svBBUZXwraPvl7xnt1Ed9Pumlx7ZrtOQD0jdmZPDn-ivqnPM9Pf261afL_oSf2NmhJbjyt1huaoSNg1feM9iGFEsht-rM67M8EppEq_35M7utjq1Hb6Wh9X-yQrdXvRPtd5m2k9ldE5R4TjQoI7yHqN5HBf_"/>
+<img class="rounded-2xl object-cover aspect-[4/5] hover:scale-[1.02] transition"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr1UF0z6FLJ2fuPCFDcN667rRWKTm-ZmPlvasc4pTcpM9zGLNgfsIXCowYhX_NUJ6d2BlYaPGeW0pHwqrKHmg9i5fMS2JmfbhcW5zlSeFENe_CpX_1svBBUZXwraPvl7xnt1Ed9Pumlx7ZrtOQD0jdmZPDn-ivqnPM9Pf261afL_oSf2NmhJbjyt1huaoSNg1feM9iGFEsht-rM67M8EppEq_35M7utjq1Hb6Wh9X-yQrdXvRPtd5m2k9ldE5R4TjQoI7yHqN5HBf_">
 
 </div>
+
+</div>
+
 </section>
 
-<section class="py-24 px-12 max-w-7xl mx-auto border-t border-white/5">
+<!-- CONTACT -->
+<section class="py-20 border-t border-white/10">
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
 
 <div>
 
-<h2 class="text-6xl font-extrabold mb-8" style="font-family:Syne;">
+<h2 class="title-font text-5xl sm:text-6xl font-extrabold leading-none mb-8">
 Látogasd meg a
 <span class="text-primary">Győri Szalont</span>
 </h2>
 
-<div class="space-y-6">
+<div class="space-y-5 text-lg">
 
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<span>Győr, Magyarország</span>
+<div class="flex gap-4 items-center">
+📍 Győr, Magyarország
 </div>
 
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">history</span>
-<span>Professzionális hajművész 1986 óta</span>
+<div class="flex gap-4 items-center">
+🕓 Professzionális hajművész 1986 óta
 </div>
 
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary">alternate_email</span>
-<span>Instagram: @befonlak</span>
+<div class="flex gap-4 items-center">
+📸 Instagram: @befonlak
 </div>
 
-<div class="pt-8">
+</div>
 
-<h4 class="text-3xl font-bold mb-4">
+<div class="mt-10">
+
+<h3 class="text-3xl font-bold mb-4">
 Nyitvatartás
-</h4>
+</h3>
 
-<ul class="space-y-2 text-on-surface-variant">
-<li class="flex justify-between">
+<div class="space-y-2 text-muted">
+<div class="flex justify-between">
 <span>Hétfő – Péntek</span>
 <span>09:00 – 18:00</span>
-</li>
+</div>
 
-<li class="flex justify-between">
+<div class="flex justify-between">
 <span>Szombat</span>
 <span>09:00 – 14:00</span>
-</li>
+</div>
 
-<li class="flex justify-between">
+<div class="flex justify-between">
 <span>Vasárnap</span>
 <span>Zárva</span>
-</li>
-
-</ul>
-
-</div>
-</div>
 </div>
 
-<div class="rounded-3xl overflow-hidden ghost-border h-[400px]">
-
-<img class="w-full h-full object-cover grayscale opacity-80 contrast-125"
-src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUtVn4xxjmm8mkYSv83rh8Mikmz3TK9DLtsodMyvpMYS4RZwvUhxA8Vz77kR7VpEOpSVYbIIVuAB-mPfC6Gtv8gIaTinYpEPDA8hg9-ld50sjy7ofiMSDY-UINefGOoHO6BcOoBZIeTZDY99fE7pncS17_SjEh9ptA4EYXrq5zpUd9D9zA1yhDDs8i3-MyCm6Xz9ah5jxobOR04NdzqZhRLfD_w_8lV6o17veV4YO4eGyQ7U2Y_HW0Qys2QiE_U1PmYRE8d1vA2ltR"/>
+</div>
 
 </div>
 
 </div>
+
+<div>
+<img
+class="rounded-[32px] object-cover w-full h-[420px]"
+src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUtVn4xxjmm8mkYSv83rh8Mikmz3TK9DLtsodMyvpMYS4RZwvUhxA8Vz77kR7VpEOpSVYbIIVuAB-mPfC6Gtv8gIaTinYpEPDA8hg9-ld50sjy7ofiMSDY-UINefGOoHO6BcOoBZIeTZDY99fE7pncS17_SjEh9ptA4EYXrq5zpUd9D9zA1yhDDs8i3-MyCm6Xz9ah5jxobOR04NdzqZhRLfD_w_8lV6o17veV4YO4eGyQ7U2Y_HW0Qys2QiE_U1PmYRE8d1vA2ltR">
+</div>
+
+</div>
+
 </section>
 
-</main>
+<footer class="border-t border-white/10 py-10">
 
-<footer class="bg-surface-container-lowest py-12 border-t border-white/5">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex flex-col md:flex-row gap-8 justify-between items-center">
 
-<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-6">
-
-<div class="flex flex-col items-center md:items-start">
-<span class="text-primary text-2xl font-bold mb-2">
+<div class="text-center md:text-left">
+<div class="title-font text-primary text-2xl font-bold mb-2">
 Befon Lak
-</span>
+</div>
 
-<p class="text-on-surface-variant">
+<p class="text-muted">
 © 2024 Befon Lak Győr. A fonás művészete.
 </p>
 </div>
 
-<div class="flex gap-8">
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
-Adatvédelmi szabályzat
-</a>
-
-<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">
-Felhasználási feltételek
-</a>
-
-<span class="text-on-surface-variant">
-Győr, Magyarország
-</span>
+<div class="flex flex-wrap justify-center gap-6 text-sm text-muted">
+<a href="#">Adatvédelmi szabályzat</a>
+<a href="#">Felhasználási feltételek</a>
+<span>Győr, Magyarország</span>
 </div>
 
 </div>
+
 </footer>
 
 </body>
