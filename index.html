@@ -3,68 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Befon Lak</title>
-  <meta name="description" content="A fonás művészete Győr szívében – elegancia, precizitás és tradíció minden egyes mozdulatban.">
+  <title>Befon Lak – A fonás művészete Győr szívében</title>
+  <meta name="description" content="A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.">
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap)" rel="stylesheet">
+
   <style>
-    body {
-      font-family: "Poppins", "Segoe UI", sans-serif;
-      line-height: 1.6;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background-color: #f7f5f2;
+    }
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #faf7f5;
       color: #333;
+      line-height: 1.6;
     }
     header {
-      background-color: #d2b48c;
+      background-color: #d4b48c;
       color: #fff;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
     }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
     section {
-      padding: 2rem;
       max-width: 900px;
-      margin: auto;
+      margin: 2rem auto;
       background: #fff;
-      margin-top: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     h2 {
-      color: #b58545;
-      border-bottom: 2px solid #d8c3a5;
+      color: #b28547;
+      border-bottom: 2px solid #e4d1b0;
       padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
     }
     h3 {
-      margin-top: 1.5rem;
-      color: #444;
+      margin-top: 1rem;
+      color: #4d3d2a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     ul {
-      list-style-type: none;
-      padding: 0;
+      list-style: none;
+      margin-top: 1rem;
     }
     ul li {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    ul li h4 {
+      color: #7a5b37;
+      margin-bottom: 0.3rem;
     }
     blockquote {
+      margin: 2rem 0;
+      padding-left: 1rem;
+      border-left: 4px solid #d4b48c;
       font-style: italic;
       color: #555;
-      border-left: 4px solid #d8c3a5;
-      padding-left: 1rem;
-      margin: 2rem 0;
     }
     footer {
+      background-color: #d4b48c;
+      color: #fff;
       text-align: center;
       padding: 1.5rem;
-      background-color: #d2b48c;
-      color: #fff;
-      margin-top: 2rem;
+      margin-top: 3rem;
+    }
+    .contact p {
+      margin-bottom: 0.5rem;
+    }
+    .hours p {
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -72,9 +105,8 @@
     <p>A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.</p>
   </header>
 
-  <section id="elismeresek">
+  <section id="awards">
     <h2>Elismerések</h2>
-
     <h3>🏆 Vivihajműhely Online Kupa</h3>
     <p>2023 — 2. helyezett</p>
 
@@ -85,9 +117,9 @@
     <p>3. és 5. helyezés</p>
   </section>
 
-  <section id="szolgaltatasok">
+  <section id="services">
     <h2>Szolgáltatások</h2>
-    <p><strong>Professzionális hajfonás</strong> – egyedi technikákkal és modern szemlélettel, hogy minden frizura önkifejezés legyen.</p>
+    <p><strong>Professzionális hajfonás</strong> – Egyedi stílus, modern technikák, hagyományőrző szemlélet.</p>
 
     <ul>
       <li>
@@ -109,25 +141,27 @@
     </blockquote>
   </section>
 
-  <section id="galeria">
+  <section id="gallery">
     <h2>Galéria</h2>
-    <p>Munkáinkból válogatva:</p>
-    <!-- Itt lehetne elhelyezni képeket vagy egy galériát -->
+    <p>Munkáink – válogatás kész frizuráinkból és workshop-pillanatainkból.</p>
+    <!-- Hely a képgalériának -->
   </section>
 
-  <section id="kapcsolat">
+  <section id="contact" class="contact">
     <h2>Kapcsolat</h2>
-    <p><strong>Látogasd meg a Győri Szalont!</strong></p>
+    <p><strong>Látogasd meg győri szalonunkat!</strong></p>
     <p>📍 9022 Győr, Magyarország — Belváros</p>
-    <p>📸 @befonlak — Kövess minket Instagramon</p>
+    <p>📸 <strong>@befonlak</strong> — Kövess minket Instagramon</p>
     <p>🕰️ <strong>Szakmai tapasztalat:</strong> 1986 óta</p>
 
-    <h4>Nyitvatartás</h4>
-    <p>
-      Hétfő – Péntek: 09:00 – 18:00<br>
-      Szombat: 09:00 – 14:00<br>
-      Vasárnap: Zárva
-    </p>
+    <div class="hours">
+      <h3>Nyitvatartás</h3>
+      <p>
+        Hétfő – Péntek: 09:00 – 18:00<br>
+        Szombat: 09:00 – 14:00<br>
+        Vasárnap: Zárva
+      </p>
+    </div>
   </section>
 
   <footer>
