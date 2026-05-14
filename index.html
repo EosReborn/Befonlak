@@ -3,173 +3,205 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Befon Lak – A fonás művészete Győrben</title>
-  <meta name="description" content="A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.">
+  <title>Befon Lak – A fonás művészete Győr szívében</title>
+  <meta name="description" content="A fonás művészete Győr szívében – elegancia, precizitás és tradíció minden egyes mozdulatban.">
   <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap)" rel="stylesheet">
 
   <style>
     :root {
-      --gold: #c5a36d;
-      --beige: #f8f5f1;
-      --dark: #2b2b2b;
+      --gold: #d1ac6e;
+      --cream: #fdfaf6;
+      --dark: #1f1b16;
+      --accent: #b28a50;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: var(--beige);
+      background-color: var(--cream);
       color: var(--dark);
       line-height: 1.6;
     }
 
-    header {
-      background-color: var(--dark);
-      color: #fff;
-      padding: 6rem 1rem;
+    /* ----- HEADER / HERO ----- */
+    header.hero {
+      position: relative;
+      height: 90vh;
+      background: url('[images.unsplash.com](https://images.unsplash.com/photo-1617043986226-4db8ec0b80ea?auto=format&fit=crop&w=1900&q=80)') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      color: white;
+    }
+    header.hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    header .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 2rem;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
-      margin-bottom: 1rem;
       color: var(--gold);
+      margin-bottom: 1rem;
     }
     header p {
       font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
+      color: #eee;
     }
 
+    /* ----- GENERAL SECTIONS ----- */
     section {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 4rem auto;
-      padding: 0 1.5rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      padding: 3rem 2rem;
     }
-
     h2 {
       font-family: 'Playfair Display', serif;
-      color: var(--gold);
       font-size: 2rem;
-      margin-bottom: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
       text-align: center;
     }
 
     h3 {
+      margin-top: 1.2rem;
       color: var(--dark);
       font-weight: 600;
-      margin-bottom: 0.3rem;
     }
 
-    .awards, .services, .gallery, .contact {
-      background-color: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      margin-bottom: 3rem;
+    p { margin-bottom: 1rem; }
+
+    /* ----- AWARDS ----- */
+    .awards h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.1rem;
     }
 
-    .awards p, .services p {
-      margin-bottom: 1rem;
-    }
-
+    /* ----- SERVICES ----- */
     .services ul {
       list-style: none;
-      display: grid;
-      gap: 1.5rem;
+      padding: 0;
       margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
     }
-
-    .services li h4 {
-      color: var(--gold);
+    .services li {
+      background: var(--cream);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    .services li:hover { transform: translateY(-5px); }
+    .services h4 {
+      color: var(--accent);
       margin-bottom: 0.3rem;
     }
 
     blockquote {
+      margin: 2rem 0;
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
       font-style: italic;
       color: #555;
-      border-left: 4px solid var(--gold);
-      padding-left: 1rem;
-      margin-top: 2rem;
     }
 
+    /* ----- GALLERY ----- */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
-      margin-top: 1rem;
     }
-
     .gallery-grid img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
+      height: 320px;
       object-fit: cover;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      transition: transform 0.4s, box-shadow 0.4s;
     }
-
     .gallery-grid img:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
 
+    /* ----- CONTACT ----- */
+    .contact {
+      text-align: center;
+    }
     .contact p {
       margin-bottom: 0.7rem;
-      text-align: center;
     }
-
     .hours {
-      margin-top: 1rem;
-      text-align: center;
+      margin-top: 1.5rem;
       line-height: 1.5;
     }
 
+    /* ----- FOOTER ----- */
     footer {
       background-color: var(--dark);
-      color: #fff;
+      color: #eee;
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
+      margin-top: 3rem;
     }
 
     @media (max-width: 768px) {
       header h1 { font-size: 2.3rem; }
-      section { margin: 2rem auto; }
+      section { padding: 2rem 1rem; margin: 2rem auto; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <h1>Befon Lak</h1>
-    <p>A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.</p>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Befon Lak</h1>
+      <p>A fonás művészete Győr szívében – elegancia, precizitás és tradíció minden egyes mozdulatban.</p>
+    </div>
   </header>
 
   <section class="awards">
     <h2>Elismerések</h2>
     <h3>🏆 Vivihajműhely Online Kupa</h3>
-    <p>2023 — 2. helyezett</p>
-    <h3>✨ MFKKE Bajnokság</h3>
-    <p>2025 — Cover photo különdíj</p>
-    <h3>🎖️ MFKKE Online Kupa</h3>
-    <p>3. és 5. helyezés</p>
+    <p>2023 — 2. helyezett</p>
+    <h3>✨ MFKKE Bajnokság</h3>
+    <p>2025 — Cover photo különdíj</p>
+    <h3>🎖️ MFKKE Online Kupa</h3>
+    <p>3. és 5. helyezés</p>
   </section>
 
   <section class="services">
     <h2>Szolgáltatások</h2>
-    <p>Professzionális hajfonás – modern és tradicionális technikák, személyre szabva.</p>
+    <p style="text-align:center; max-width:700px; margin:0 auto 2rem;">Professzionális hajfonás – egyedi stílus, modern technika és hagyományőrző szemlélet egy helyen.</p>
     <ul>
       <li>
-        <h4>✔️ Digitális hajtervezés</h4>
+        <h4>✔️ Digitális hajtervezés</h4>
         <p>Személyre szabott konzultáció és vizuális tervezés a tökéletes forma eléréséhez.</p>
       </li>
       <li>
-        <h4>✔️ Alkalmi hajfonás</h4>
-        <p>Esküvői, báli és ünnepi frizurák, melyek egész nap és éjjel tartanak.</p>
+        <h4>✔️ Alkalmi hajfonás</h4>
+        <p>Esküvői, báli és ünnepi frizurák, melyek egész nap és éjjel is tartanak.</p>
       </li>
       <li>
-        <h4>✔️ Művészeti workshopok</h4>
-        <p>Szakmai továbbképzések és élményfonás kezdőknek és haladóknak egyaránt.</p>
+        <h4>✔️ Művészeti workshopok</h4>
+        <p>Szakmai továbbképzések és élményfonás kezdőknek és haladóknak egyaránt.</p>
       </li>
     </ul>
 
@@ -180,36 +212,30 @@
 
   <section class="gallery">
     <h2>Galéria</h2>
-    <p style="text-align:center;">Válogatás az elmúlt évek kedvenc fonásaiból és versenymunkáiból.</p>
+    <p style="text-align:center;max-width:650px;margin:0 auto 1.5rem;">Egy pillantás a Befon Lak világába – fonások, alkotások és szalonunk hangulata.</p>
     <div class="gallery-grid">
-      <img src="[source.unsplash.com](https://source.unsplash.com/600x800/?braid,hair)" alt="Fonott frizura 1">
-      <img src="[source.unsplash.com](https://source.unsplash.com/600x800/?hairstyle,wedding)" alt="Alkalmi hajfonás">
-      <img src="[source.unsplash.com](https://source.unsplash.com/600x800/?hair,salon)" alt="Szalon munka">
-      <img src="[source.unsplash.com](https://source.unsplash.com/600x800/?hair,beauty)" alt="Kreatív fonás">
-      <img src="[source.unsplash.com](https://source.unsplash.com/600x800/?hair,braid)" alt="Művészi hajfonat">
-      <img src="[source.unsplash.com](https://source.unsplash.com/600x800/?women,hair)" alt="Elegáns frizura">
+      <img src="[images.unsplash.com](https://images.unsplash.com/photo-1596464716121-2f2e7efb0f72?auto=format&fit=crop&w=800&q=80)" alt="Fonott frizura 1">
+      <img src="[images.unsplash.com](https://images.unsplash.com/photo-1620912749298-636bdb1089a1?auto=format&fit=crop&w=800&q=80)" alt="Kreatív fonás">
+      <img src="[images.unsplash.com](https://images.unsplash.com/photo-1545158535-c3f8cf6b8d61?auto=format&fit=crop&w=800&q=80)" alt="Alkalmi frizura">
+      <img src="[images.unsplash.com](https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80)" alt="Szalon munka">
+      <img src="[images.unsplash.com](https://images.unsplash.com/photo-1608065120910-7b379cc9c100?auto=format&fit=crop&w=800&q=80)" alt="Művészi hajfonás">
+      <img src="[images.unsplash.com](https://images.unsplash.com/photo-1604147494869-8913cc4b7ca7?auto=format&fit=crop&w=800&q=80)" alt="Inspiráció">
     </div>
   </section>
 
   <section class="contact">
     <h2>Kapcsolat</h2>
-    <p><strong>Látogasd meg győri szalonunkat!</strong></p>
-    <p>📍 9022 Győr, Magyarország — Belváros</p>
-    <p>📸 Kövess minket Instagramon: <strong>@befonlak</strong></p>
-    <p>🕰️ Szakmai tapasztalat: 1986 óta</p>
-
+    <p>📍 9022 Győr, Magyarország — Belváros</p>
+    <p>📸 Instagram: <strong>@befonlak</strong></p>
+    <p>📞 Szakmai tapasztalat 1986 óta</p>
     <div class="hours">
       <h3>Nyitvatartás</h3>
-      <p>
-        Hétfő – Péntek: 09:00 – 18:00<br>
-        Szombat: 09:00 – 14:00<br>
-        Vasárnap: Zárva
-      </p>
+      <p>Hétfő – Péntek: 09:00 – 18:00<br>Szombat: 09:00 – 14:00<br>Vasárnap: Zárva</p>
     </div>
   </section>
 
   <footer>
-    <p>© 2026 Befon Lak — A fonás művészete Győrben</p>
+    <p>© 2026 Befon Lak – A fonás művészete Győr szívében</p>
   </footer>
 
 </body>
