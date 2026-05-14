@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="hu"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -20,6 +19,69 @@
         .glass-nav {
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Mobilnézet optimalizálás: képek és szövegek módosítása nélkül */
+        * { box-sizing: border-box; }
+        html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+        img { max-width: 100%; display: block; }
+        section, footer, nav, main { max-width: 100%; }
+
+        @media (max-width: 1024px) {
+            .px-margin-desktop { padding-left: 32px !important; padding-right: 32px !important; }
+            .py-section-gap { padding-top: 88px !important; padding-bottom: 88px !important; }
+            .gap-20 { gap: 56px !important; }
+            .text-headline-xl { font-size: 54px !important; line-height: 1.08 !important; }
+            .text-headline-lg { font-size: 36px !important; line-height: 1.18 !important; }
+            .auto-rows-\[300px\] { grid-auto-rows: 260px !important; }
+        }
+
+        @media (max-width: 768px) {
+            nav .h-20 { height: 72px !important; }
+            main { padding-top: 72px !important; }
+            .px-margin-desktop { padding-left: 20px !important; padding-right: 20px !important; }
+            .py-section-gap { padding-top: 72px !important; padding-bottom: 72px !important; }
+            nav button { padding: 11px 16px !important; font-size: 10px !important; letter-spacing: .08em !important; max-width: 170px; white-space: normal; line-height: 1.2 !important; }
+            .h-\[921px\] { height: auto !important; min-height: 720px !important; padding-top: 90px !important; padding-bottom: 70px !important; align-items: flex-end !important; }
+            .bg-gradient-to-r { background: linear-gradient(to top, var(--tw-gradient-from), rgba(255,248,245,.72), transparent) !important; }
+            .text-headline-xl { font-size: 46px !important; line-height: 1.05 !important; letter-spacing: -0.02em !important; }
+            .text-headline-lg { font-size: 32px !important; line-height: 1.15 !important; }
+            .text-headline-md { font-size: 22px !important; line-height: 1.25 !important; }
+            .text-body-lg { font-size: 16px !important; line-height: 1.55 !important; }
+            .max-w-md, .max-w-2xl { max-width: 100% !important; }
+            .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 24px !important; }
+            .space-y-10 > :not([hidden]) ~ :not([hidden]) { margin-top: 28px !important; }
+            .space-y-12 > :not([hidden]) ~ :not([hidden]) { margin-top: 32px !important; }
+            .flex.gap-6 { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
+            .flex.gap-6 button { width: 100%; padding-left: 18px !important; padding-right: 18px !important; text-align: center; }
+            .md\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            .md\:flex-row { flex-direction: column !important; }
+            .gap-gutter { gap: 20px !important; }
+            .gap-20 { gap: 44px !important; }
+            .p-10 { padding: 28px !important; }
+            .p-8 { padding: 24px !important; }
+            .scale-105 { transform: none !important; }
+            .absolute.-inset-4 { display: none !important; }
+            .w-full.md\:w-1\/2 { width: 100% !important; }
+            .auto-rows-\[300px\] { grid-auto-rows: auto !important; }
+            .grid-cols-2.md\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            .col-span-2, .col-span-1, .row-span-2, .row-span-1 { grid-column: auto !important; grid-row: auto !important; }
+            .grid-cols-2.md\:grid-cols-4 > div { aspect-ratio: 4 / 5; }
+            .grid-cols-2.md\:grid-cols-4 > div img { width: 100%; height: 100%; object-fit: cover; }
+            .min-h-\[500px\] { min-height: 340px !important; }
+            .h-full.min-h-\[500px\] img { min-height: 340px !important; }
+            .grid.grid-cols-2.gap-4 { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+            footer .grid { grid-template-columns: 1fr !important; }
+            footer .mt-20 { margin-top: 48px !important; padding-left: 20px; padding-right: 20px; }
+        }
+
+        @media (max-width: 420px) {
+            .text-headline-xl { font-size: 40px !important; }
+            .text-headline-lg { font-size: 29px !important; }
+            .tracking-\[0\.3em\] { letter-spacing: 0.18em !important; }
+            nav button { max-width: 150px; padding-left: 14px !important; padding-right: 14px !important; }
+            .p-10 { padding: 24px !important; }
+            .grid.grid-cols-2.gap-4 { grid-template-columns: 1fr !important; }
         }
     </style>
 <script id="tailwind-config">
