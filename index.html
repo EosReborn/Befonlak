@@ -2,6 +2,8 @@
 <html lang="hu"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Befon Lak – Hajfonó szalon Győrben</title>
+<meta name="description" content="Prémium hajfonó szalon Győrben. Alkalmi hajfonás, egyedi fonások, workshopok és professzionális hajtervezés."/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Manrope:wght@400;700&amp;display=swap" rel="stylesheet"/>
@@ -178,14 +180,14 @@
 <div class="flex justify-between items-center h-20 px-margin-desktop max-w-screen-2xl mx-auto">
 <div class="text-headline-md font-headline-md tracking-tight text-on-surface">Befon Lak</div>
 <div class="hidden md:flex items-center gap-10">
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Services</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Gallery</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Awards</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#">Contact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#szolgaltatasok">Szolgáltatások</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#galeria">Galéria</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#elismeresek">Elismerések</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#kapcsolat">Kapcsolat</a>
 </div>
-<button class="bg-[#2D2926] text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all duration-300 active:scale-95">
-                Book Appointment
-            </button>
+<a href="#kapcsolat" class="bg-[#2D2926] text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all duration-300 active:scale-95 inline-flex items-center justify-center">
+                Időpontfoglalás
+            </a>
 </div>
 </nav>
 <main class="pt-20">
@@ -200,18 +202,18 @@
 <h1 class="font-headline-xl text-headline-xl text-on-surface">Befon Lak</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.</p>
 <div class="flex gap-6">
-<button class="bg-[#2D2926] text-white px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all">
+<a href="#kapcsolat" class="bg-[#2D2926] text-white px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all inline-flex items-center justify-center">
                             Időpontfoglalás
-                        </button>
-<button class="border border-outline-variant px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-all">
+                        </a>
+<a href="#galeria" class="border border-outline-variant px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-all inline-flex items-center justify-center">
                             Galéria megtekintése
-                        </button>
+                        </a>
 </div>
 </div>
 </div>
 </section>
 <!-- Awards Section -->
-<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto">
+<section id="elismeresek" class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto">
 <div class="text-center mb-20">
 <span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Elismerések</span>
 <h2 class="font-headline-lg text-headline-lg mt-4">Díjazott Szakértelem</h2>
@@ -241,7 +243,7 @@
 </div>
 </section>
 <!-- Services Section -->
-<section class="py-section-gap bg-surface-container-low overflow-hidden">
+<section id="szolgaltatasok" class="py-section-gap bg-surface-container-low overflow-hidden">
 <div class="px-margin-desktop max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-20 items-center">
 <div class="w-full md:w-1/2 space-y-12">
 <div class="space-y-4">
@@ -282,7 +284,7 @@
 </div>
 </section>
 <!-- Gallery Section -->
-<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto">
+<section id="elismeresek" class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto">
 <div class="text-center mb-20 space-y-4">
 <span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Galéria</span>
 <h2 class="font-headline-lg text-headline-lg">Munkáink</h2>
@@ -303,7 +305,7 @@
 </div>
 </section>
 <!-- Visit Section -->
-<section class="py-section-gap bg-surface-bright">
+<section id="kapcsolat" class="py-section-gap bg-surface-bright">
 <div class="px-margin-desktop max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
 <div class="space-y-10">
 <div class="space-y-4">
@@ -344,12 +346,12 @@
 </main>
 <!-- Footer -->
 <footer class="w-full py-section-gap bg-surface-container-low border-t border-tertiary/10">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-screen-2xl mx-auto">
 <div class="space-y-6">
 <div class="text-headline-md font-headline-md text-on-surface">Befon Lak</div>
 <p class="font-body-md text-on-surface-variant">Prémium hajfonó szalon Győrben. A minőség és az elegancia találkozása 1986 óta.</p>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-icon="facebook">Notebook</span>
+<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-icon="facebook">public</span>
 <span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-icon="photo_camera">photo_camera</span>
 </div>
 </div>
@@ -363,27 +365,17 @@
 </ul>
 </div>
 <div class="space-y-6">
-<h5 class="font-label-sm text-label-sm text-primary uppercase">Jogi nyilatkozat</h5>
+<h5 class="font-label-sm text-label-sm text-primary uppercase">Elérhetőség</h5>
 <ul class="space-y-4 font-body-md text-on-surface-variant">
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Terms of Service</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Sustainability</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Accessibility</a></li>
+<li>Győr, Belváros</li>
+<li>Időpont egyeztetés üzenetben</li>
+<li>Instagram: @befonlak</li>
+<li>Facebook: Befon Lak</li>
 </ul>
-</div>
-<div class="space-y-6">
-<h5 class="font-label-sm text-label-sm text-primary uppercase">Hírlevél</h5>
-<p class="font-body-md text-on-surface-variant">Iratkozz fel híreinkre és ajánlatainkra.</p>
-<div class="relative">
-<input class="w-full bg-transparent border-0 border-b border-outline-variant py-2 px-0 focus:ring-0 focus:border-primary transition-all" placeholder="Email cím" type="email"/>
-<button class="absolute right-0 top-1/2 -translate-y-1/2 text-primary">
-<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-</button>
-</div>
 </div>
 </div>
 <div class="mt-20 text-center font-label-sm text-label-sm text-on-surface-variant opacity-60">
-            © 2024 Befon Lak. All rights reserved.
+            © 2026 Befon Lak. Minden jog fenntartva.
         </div>
 </footer>
 </body></html>
