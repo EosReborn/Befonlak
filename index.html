@@ -8,7 +8,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Manrope:wght@400;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -24,11 +23,14 @@
             -webkit-backdrop-filter: blur(12px);
         }
 
-        /* Mobilnézet optimalizálás: képek és szövegek módosítása nélkül */
+        /* Mobilnézet optimalizálás */
         * { box-sizing: border-box; }
         html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
         img { max-width: 100%; display: block; }
         section, footer, nav, main { max-width: 100%; }
+
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
 
         @media (max-width: 1024px) {
             .px-margin-desktop { padding-left: 32px !important; padding-right: 32px !important; }
@@ -44,10 +46,29 @@
             main { padding-top: 72px !important; }
             .px-margin-desktop { padding-left: 20px !important; padding-right: 20px !important; }
             .py-section-gap { padding-top: 72px !important; padding-bottom: 72px !important; }
-            nav button { padding: 11px 16px !important; font-size: 10px !important; letter-spacing: .08em !important; max-width: 170px; white-space: normal; line-height: 1.2 !important; }
-            .h-\[921px\] { height: auto !important; min-height: 720px !important; padding-top: 90px !important; padding-bottom: 70px !important; align-items: flex-end !important; }
-            .bg-gradient-to-r { background: linear-gradient(to top, var(--tw-gradient-from), rgba(255,248,245,.72), transparent) !important; }
-            .text-headline-xl { font-size: 46px !important; line-height: 1.05 !important; letter-spacing: -0.02em !important; }
+            nav button, nav a.bg-\[#2D2926\] { 
+                padding: 11px 16px !important; 
+                font-size: 10px !important; 
+                letter-spacing: .08em !important; 
+                max-width: 170px; 
+                white-space: normal; 
+                line-height: 1.2 !important; 
+            }
+            .h-\[921px\] { 
+                height: auto !important; 
+                min-height: 720px !important; 
+                padding-top: 90px !important; 
+                padding-bottom: 70px !important; 
+                align-items: flex-end !important; 
+            }
+            .bg-gradient-to-r { 
+                background: linear-gradient(to top, var(--tw-gradient-from), rgba(255,248,245,.72), transparent) !important; 
+            }
+            .text-headline-xl { 
+                font-size: 46px !important; 
+                line-height: 1.05 !important; 
+                letter-spacing: -0.02em !important; 
+            }
             .text-headline-lg { font-size: 32px !important; line-height: 1.15 !important; }
             .text-headline-md { font-size: 22px !important; line-height: 1.25 !important; }
             .text-body-lg { font-size: 16px !important; line-height: 1.55 !important; }
@@ -55,9 +76,20 @@
             .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 24px !important; }
             .space-y-10 > :not([hidden]) ~ :not([hidden]) { margin-top: 28px !important; }
             .space-y-12 > :not([hidden]) ~ :not([hidden]) { margin-top: 32px !important; }
-            .flex.gap-6 { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
-            .flex.gap-6 button { width: 100%; padding-left: 18px !important; padding-right: 18px !important; text-align: center; }
-            .md\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            .flex.gap-6 { 
+                flex-direction: column !important; 
+                align-items: stretch !important; 
+                gap: 14px !important; 
+            }
+            .flex.gap-6 button, .flex.gap-6 a { 
+                width: 100%; 
+                padding-left: 18px !important; 
+                padding-right: 18px !important; 
+                text-align: center; 
+            }
+            .md\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-4 { 
+                grid-template-columns: 1fr !important; 
+            }
             .md\:flex-row { flex-direction: column !important; }
             .gap-gutter { gap: 20px !important; }
             .gap-20 { gap: 44px !important; }
@@ -67,22 +99,49 @@
             .absolute.-inset-4 { display: none !important; }
             .w-full.md\:w-1\/2 { width: 100% !important; }
             .auto-rows-\[300px\] { grid-auto-rows: auto !important; }
-            .grid-cols-2.md\:grid-cols-4 { grid-template-columns: 1fr !important; }
-            .col-span-2, .col-span-1, .row-span-2, .row-span-1 { grid-column: auto !important; grid-row: auto !important; }
-            .grid-cols-2.md\:grid-cols-4 > div { aspect-ratio: 4 / 5; }
-            .grid-cols-2.md\:grid-cols-4 > div img { width: 100%; height: 100%; object-fit: cover; }
+            
+            /* Galéria javítás mobilon */
+            .grid-cols-2.md\:grid-cols-4 { 
+                grid-template-columns: 1fr !important; 
+                gap: 16px !important;
+            }
+            .col-span-2, .col-span-1, .row-span-2, .row-span-1 { 
+                grid-column: auto !important; 
+                grid-row: auto !important; 
+            }
+            .grid-cols-2.md\:grid-cols-4 > div { 
+                aspect-ratio: 4 / 5; 
+                height: auto !important;
+            }
+            .grid-cols-2.md\:grid-cols-4 > div img { 
+                width: 100%; 
+                height: 100%; 
+                object-fit: cover; 
+            }
+            
             .min-h-\[500px\] { min-height: 340px !important; }
             .h-full.min-h-\[500px\] img { min-height: 340px !important; }
-            .grid.grid-cols-2.gap-4 { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+            .grid.grid-cols-2.gap-4 { 
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 12px !important; 
+            }
             footer .grid { grid-template-columns: 1fr !important; }
-            footer .mt-20 { margin-top: 48px !important; padding-left: 20px; padding-right: 20px; }
+            footer .mt-20 { 
+                margin-top: 48px !important; 
+                padding-left: 20px; 
+                padding-right: 20px; 
+            }
         }
 
         @media (max-width: 420px) {
             .text-headline-xl { font-size: 40px !important; }
             .text-headline-lg { font-size: 29px !important; }
             .tracking-\[0\.3em\] { letter-spacing: 0.18em !important; }
-            nav button { max-width: 150px; padding-left: 14px !important; padding-right: 14px !important; }
+            nav button, nav a.bg-\[#2D2926\] { 
+                max-width: 150px; 
+                padding-left: 14px !important; 
+                padding-right: 14px !important; 
+            }
             .p-10 { padding: 24px !important; }
             .grid.grid-cols-2.gap-4 { grid-template-columns: 1fr !important; }
         }
@@ -195,7 +254,7 @@
 <!-- Hero Section -->
 <section class="relative h-[921px] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover grayscale-[20%] brightness-95" data-alt="A cinematic, high-fashion portrait of an intricate professional hair braiding design. The lighting is soft and ethereal, using the 'Luminous Artistry' aesthetic with warm pearlescent tones. The background is a minimalist, out-of-focus high-end salon interior in Győr. The overall mood is sophisticated, artistic, and serene, highlighting the detailed textures of the braids against a soft sand color palette." src="images/IMG_6714.jpeg"/>
+<img class="w-full h-full object-cover grayscale-[20%] brightness-95" alt="Professzionális hajfonás Győrben - Befon Lak szalon" src="images/IMG_6714.jpeg"/>
 <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
 </div>
 <div class="relative z-10 px-margin-desktop max-w-screen-2xl mx-auto w-full">
@@ -222,21 +281,21 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 <!-- Award Card 1 -->
 <div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all">
-<span class="material-symbols-outlined text-secondary text-5xl" data-icon="emoji_events">emoji_events</span>
+<span class="material-symbols-outlined text-secondary text-5xl">emoji_events</span>
 <h3 class="font-headline-md text-headline-md">Vivihajműhely Online Kupa</h3>
 <p class="font-body-md text-on-surface-variant">2023 — 2. helyezett</p>
 <div class="w-12 h-px bg-outline-variant"></div>
 </div>
 <!-- Award Card 2 -->
 <div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all scale-105 z-10 shadow-xl shadow-primary/5">
-<span class="material-symbols-outlined text-secondary text-5xl" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
 <h3 class="font-headline-md text-headline-md">MFKKE Bajnokság</h3>
 <p class="font-body-md text-on-surface-variant">2025 — Cover photo különdíj</p>
 <div class="w-12 h-px bg-outline-variant"></div>
 </div>
 <!-- Award Card 3 -->
 <div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all">
-<span class="material-symbols-outlined text-secondary text-5xl" data-icon="military_tech">military_tech</span>
+<span class="material-symbols-outlined text-secondary text-5xl">military_tech</span>
 <h3 class="font-headline-md text-headline-md">MFKKE Online Kupa</h3>
 <p class="font-body-md text-on-surface-variant">3. és 5. helyezés</p>
 <div class="w-12 h-px bg-outline-variant"></div>
@@ -253,21 +312,21 @@
 </div>
 <ul class="space-y-8">
 <li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
 <div>
 <h4 class="font-headline-md text-[20px]">Digitális hajtervezés</h4>
 <p class="text-on-surface-variant mt-2">Személyre szabott konzultáció és vizuális tervezés a tökéletes forma eléréséhez.</p>
 </div>
 </li>
 <li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
 <div>
 <h4 class="font-headline-md text-[20px]">Alkalmi hajfonás</h4>
 <p class="text-on-surface-variant mt-2">Esküvői, báli és ünnepi frizurák, melyek egész nap és éjjel tartanak.</p>
 </div>
 </li>
 <li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
 <div>
 <h4 class="font-headline-md text-[20px]">Művészeti workshopok</h4>
 <p class="text-on-surface-variant mt-2">Szakmai továbbképzések és élményfonás kezdőknek és haladóknak egyaránt.</p>
@@ -280,28 +339,28 @@
 </div>
 <div class="w-full md:w-1/2 relative">
 <div class="absolute -inset-4 border border-primary/20 translate-x-8 translate-y-8"></div>
-<img class="relative z-10 aspect-[4/5] object-cover w-full gold-glow" data-alt="A high-quality close-up image showing the intricate process of professional hair braiding. The hands of the artist are visible, working with precision on a complex pattern. The lighting is warm and directional, creating soft shadows that emphasize the texture and structure of the braids. The aesthetic is clean and luxurious, consistent with a high-end salon in Hungary, featuring soft neutral tones." src="images/IMG_6715.jpeg"/>
+<img class="relative z-10 aspect-[4/5] object-cover w-full gold-glow" alt="Hajfonás folyamat részletei - Befon Lak" src="images/IMG_6715.jpeg"/>
 </div>
 </div>
 </section>
 <!-- Gallery Section -->
-<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto" id="elismeresek">
+<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto" id="galeria">
 <div class="text-center mb-20 space-y-4">
 <span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Galéria</span>
 <h2 class="font-headline-lg text-headline-lg">Munkáink</h2>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[300px]">
 <div class="col-span-2 row-span-2 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A stunning gallery-worthy photograph of an avant-garde braided hairstyle. The design is sculptural and complex, presented against a clean, minimalist background. The lighting is editorial and high-contrast, highlighting the pearlescent sheen of the hair and the meticulous craftsmanship. This image represents the pinnacle of salon artistry in Győr, Hungary." src="images/IMG_6716.jpeg"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Különleges hajfonás kreáció - Befon Lak portfólió" src="images/IMG_6716.jpeg"/>
 </div>
 <div class="col-span-1 row-span-1 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detailed shot of tight, symmetrical braids, demonstrating extreme precision and technical skill. The color palette is warm and natural, fitting the Luminous Artistry design system. The setting is bright and clean, emphasizing a professional salon environment with a calm and sophisticated atmosphere." src="images/IMG_6717.jpeg"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Precíz szimmetrikus fonások" src="images/IMG_6717.jpeg"/>
 </div>
 <div class="col-span-1 row-span-2 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An elegant, soft braided updo suitable for a wedding or formal event. The hair is styled with subtle pearlescent hair accessories that catch the soft studio lighting. The overall mood is romantic and refined, showcasing the versatile range of services offered at Befon Lak in Győr." src="images/IMG_6718.jpeg"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Esküvői alkalmi frizura" src="images/IMG_6718.jpeg"/>
 </div>
 <div class="col-span-1 row-span-1 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Creative hair braiding featuring geometric patterns and clean partings. The image is a close-up that highlights the artistic integrity and perfectionist approach of the stylist. The lighting is diffused and flattering, creating a high-end boutique aesthetic with a focus on artisanal quality." src="images/IMG_6719.jpeg"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Geometrikus hajfonás minták" src="images/IMG_6719.jpeg"/>
 </div>
 </div>
 </section>
@@ -315,15 +374,15 @@
 </div>
 <div class="space-y-8">
 <div class="flex items-center gap-6">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="location_on">location_on</span>
+<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
 <p class="font-body-lg">9022 Győr, Hungary — Belváros</p>
 </div>
 <div class="flex items-center gap-6">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="history">history</span>
+<span class="material-symbols-outlined text-primary text-3xl">history</span>
 <p class="font-body-lg">Szakmai tapasztalat 1986 óta</p>
 </div>
 <div class="flex items-center gap-6">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="photo_camera">photo_camera</span>
+<span class="material-symbols-outlined text-primary text-3xl">photo_camera</span>
 <p class="font-body-lg">@befonlak — Kövess minket Instagramon</p>
 </div>
 </div>
@@ -340,7 +399,7 @@
 </div>
 </div>
 <div class="h-full min-h-[500px] relative">
-<img class="w-full h-full object-cover gold-glow" data-alt="A professional salon interior mood image for Befon Lak in Győr. The space is airy, minimalist, and high-end, featuring soft sand and pearlescent white tones. Elegant styling stations with large mirrors are visible, illuminated by soft, warm light that creates a sanctuary feel. The atmosphere is calm and meticulously curated, reflecting the 'Elevated Editorial Minimalism' design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmf8YveswkhtsNetRbwrKtWM3eK2JbY7NCaUJCRFOhpKfDN3QoU9ZK85HXiqQImna28S7UX5sfQj_BhVENgEHLMR2X7ldQt0w-pK0S4ey5_XZi62po2gK8I4ymt_iwdVvqRdAjgAx1rjhNKUyvYckIJOIz3aMig9Am5fO8zfG_AOkii-UNRWO8gCcJXe7WGr7nrEr-1b2tbdA0nQGm9u_MOn3R2Fe9KxMpWHtz-DdWoY4Kb9EvcE-sgjNwpDhsKj7tOlrGHu9wbvD9"/>
+<img class="w-full h-full object-cover gold-glow" alt="Befon Lak szalon belsőépítészete Győrben" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmf8YveswkhtsNetRbwrKtWM3eK2JbY7NCaUJCRFOhpKfDN3QoU9ZK85HXiqQImna28S7UX5sfQj_BhVENgEHLMR2X7ldQt0w-pK0S4ey5_XZi62po2gK8I4ymt_iwdVvqRdAjgAx1rjhNKUyvYckIJOIz3aMig9Am5fO8zfG_AOkii-UNRWO8gCcJXe7WGr7nrEr-1b2tbdA0nQGm9u_MOn3R2Fe9KxMpWHtz-DdWoY4Kb9EvcE-sgjNwpDhsKj7tOlrGHu9wbvD9"/>
 </div>
 </div>
 </section>
@@ -352,17 +411,21 @@
 <div class="text-headline-md font-headline-md text-on-surface">Befon Lak</div>
 <p class="font-body-md text-on-surface-variant">Prémium hajfonó szalon Győrben. A minőség és az elegancia találkozása 1986 óta.</p>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-icon="facebook">public</span>
-<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity" data-icon="photo_camera">photo_camera</span>
+<a href="https://facebook.com/befonlak" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity">public</span>
+</a>
+<a href="https://instagram.com/befonlak" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity">photo_camera</span>
+</a>
 </div>
 </div>
 <div class="space-y-6">
 <h5 class="font-label-sm text-label-sm text-primary uppercase">Navigáció</h5>
 <ul class="space-y-4 font-body-md text-on-surface-variant">
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Szolgáltatások</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Galéria</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Rólunk</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#">Időpontfoglalás</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#szolgaltatasok">Szolgáltatások</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#galeria">Galéria</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#elismeresek">Elismerések</a></li>
+<li><a class="hover:text-primary transition-colors duration-200" href="#kapcsolat">Időpontfoglalás</a></li>
 </ul>
 </div>
 <div class="space-y-6">
