@@ -23,6 +23,27 @@
             -webkit-backdrop-filter: blur(12px);
         }
 
+        /* Cookie Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 27, 24, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 9999;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-top: 1px solid rgba(197, 179, 88, 0.2);
+        }
+        .cookie-banner.show {
+            transform: translateY(0);
+        }
+        .cookie-banner.hide {
+            transform: translateY(100%);
+        }
+
         /* Mobilnézet optimalizálás */
         * { box-sizing: border-box; }
         html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
@@ -101,19 +122,15 @@
             .auto-rows-\[300px\] { grid-auto-rows: auto !important; }
             
             /* Galéria javítás mobilon */
-            .grid-cols-2.md\:grid-cols-4 { 
+            .gallery-grid { 
                 grid-template-columns: 1fr !important; 
                 gap: 16px !important;
             }
-            .col-span-2, .col-span-1, .row-span-2, .row-span-1 { 
-                grid-column: auto !important; 
-                grid-row: auto !important; 
-            }
-            .grid-cols-2.md\:grid-cols-4 > div { 
+            .gallery-grid > div { 
                 aspect-ratio: 4 / 5; 
                 height: auto !important;
             }
-            .grid-cols-2.md\:grid-cols-4 > div img { 
+            .gallery-grid > div img { 
                 width: 100%; 
                 height: 100%; 
                 object-fit: cover; 
@@ -121,15 +138,29 @@
             
             .min-h-\[500px\] { min-height: 340px !important; }
             .h-full.min-h-\[500px\] img { min-height: 340px !important; }
-            .grid.grid-cols-2.gap-4 { 
-                grid-template-columns: 1fr 1fr !important; 
-                gap: 12px !important; 
-            }
             footer .grid { grid-template-columns: 1fr !important; }
             footer .mt-20 { 
                 margin-top: 48px !important; 
                 padding-left: 20px; 
                 padding-right: 20px; 
+            }
+
+            /* Cookie banner mobil */
+            .cookie-banner {
+                padding: 20px !important;
+            }
+            .cookie-content {
+                flex-direction: column !important;
+                gap: 16px !important;
+                text-align: center !important;
+            }
+            .cookie-buttons {
+                flex-direction: column !important;
+                gap: 10px !important;
+                width: 100% !important;
+            }
+            .cookie-buttons button {
+                width: 100% !important;
             }
         }
 
@@ -143,7 +174,6 @@
                 padding-right: 14px !important; 
             }
             .p-10 { padding: 24px !important; }
-            .grid.grid-cols-2.gap-4 { grid-template-columns: 1fr !important; }
         }
     </style>
 <script id="tailwind-config">
@@ -235,6 +265,28 @@
     </script>
 </head>
 <body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Cookie Banner -->
+<div id="cookieBanner" class="cookie-banner">
+    <div class="px-margin-desktop max-w-screen-2xl mx-auto py-6">
+        <div class="cookie-content flex items-center justify-between gap-8">
+            <div class="flex-1">
+                <p class="text-white font-body-md text-[15px] leading-relaxed">
+                    🍪 Az oldal sütiket használ a jobb felhasználói élmény érdekében. A weboldal használatával elfogadod a sütikre vonatkozó szabályzatunkat.
+                </p>
+            </div>
+            <div class="cookie-buttons flex gap-4 flex-shrink-0">
+                <button onclick="acceptCookies()" class="bg-primary text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary/90 transition-all whitespace-nowrap">
+                    Elfogadom
+                </button>
+                <button onclick="declineCookies()" class="border border-outline-variant text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:bg-white/10 transition-all whitespace-nowrap">
+                    Elutasítom
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-xl shadow-sm dark:shadow-none border-b border-tertiary/20">
 <div class="flex justify-between items-center h-20 px-margin-desktop max-w-screen-2xl mx-auto">
@@ -254,7 +306,7 @@
 <!-- Hero Section -->
 <section class="relative h-[921px] flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover grayscale-[20%] brightness-95" alt="Professzionális hajfonás Győrben - Befon Lak szalon" src="images/IMG_6714.jpeg"/>
+<img class="w-full h-full object-cover grayscale-[20%] brightness-95" alt="Professzionális hajfonás Győrben - Befon Lak szalon" src="images/befon1.jpg" onerror="this.src='images/IMG_6714.jpeg'"/>
 <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
 </div>
 <div class="relative z-10 px-margin-desktop max-w-screen-2xl mx-auto w-full">
@@ -339,7 +391,7 @@
 </div>
 <div class="w-full md:w-1/2 relative">
 <div class="absolute -inset-4 border border-primary/20 translate-x-8 translate-y-8"></div>
-<img class="relative z-10 aspect-[4/5] object-cover w-full gold-glow" alt="Hajfonás folyamat részletei - Befon Lak" src="images/IMG_6715.jpeg"/>
+<img class="relative z-10 aspect-[4/5] object-cover w-full gold-glow" alt="Hajfonás folyamat részletei - Befon Lak" src="images/befon3.jpg"/>
 </div>
 </div>
 </section>
@@ -349,18 +401,26 @@
 <span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Galéria</span>
 <h2 class="font-headline-lg text-headline-lg">Munkáink</h2>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[300px]">
+<div class="gallery-grid grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[300px]">
+<!-- Kép 1 - Nagy -->
 <div class="col-span-2 row-span-2 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Különleges hajfonás kreáció - Befon Lak portfólió" src="images/IMG_6716.jpeg"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Komplex hajfonási minta - Befon Lak portfólió" src="images/befon2.jpg"/>
 </div>
+<!-- Kép 2 -->
 <div class="col-span-1 row-span-1 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Precíz szimmetrikus fonások" src="images/IMG_6717.jpeg"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Kislány hajfonás színes kiegészítőkkel" src="images/befon4.jpg"/>
 </div>
-<div class="col-span-1 row-span-2 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Esküvői alkalmi frizura" src="images/IMG_6718.jpeg"/>
-</div>
+<!-- Kép 3 -->
 <div class="col-span-1 row-span-1 overflow-hidden group">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Geometrikus hajfonás minták" src="images/IMG_6719.jpeg"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Elegáns fekete hajfonás design" src="images/befon5.jpg"/>
+</div>
+<!-- Kép 4 -->
+<div class="col-span-1 row-span-1 overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Francia fonás variáció" src="images/befon3.jpg"/>
+</div>
+<!-- Kép 5 -->
+<div class="col-span-1 row-span-1 overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pasztell színű hajfonás kisgyerekeknek" src="images/befon6.jpg"/>
 </div>
 </div>
 </section>
@@ -442,4 +502,40 @@
             © 2026 Befon Lak. Minden jog fenntartva.
         </div>
 </footer>
+
+<script>
+    // Cookie banner logika
+    function showCookieBanner() {
+        const banner = document.getElementById('cookieBanner');
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        
+        if (!cookieConsent) {
+            setTimeout(() => {
+                banner.classList.add('show');
+            }, 1000);
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        hideBanner();
+    }
+
+    function declineCookies() {
+        localStorage.setItem('cookieConsent', 'declined');
+        hideBanner();
+    }
+
+    function hideBanner() {
+        const banner = document.getElementById('cookieBanner');
+        banner.classList.remove('show');
+        banner.classList.add('hide');
+    }
+
+    // Oldal betöltésekor
+    document.addEventListener('DOMContentLoaded', function() {
+        showCookieBanner();
+    });
+</script>
+
 </body></html>
