@@ -7,21 +7,37 @@
 <meta content="Prémium hajfonó szalon Győrben. Alkalmi hajfonás, egyedi fonások, workshopok és professzionális hajtervezés." name="description"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Manrope:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        .gold-glow {
-            box-shadow: 0 20px 50px -12px rgba(197, 179, 88, 0.15);
+        
+        .premium-shadow {
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         }
-        .gold-glow-hover:hover {
-            box-shadow: 0 25px 60px -12px rgba(197, 179, 88, 0.25);
+        
+        .premium-shadow-hover:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         }
-        .glass-nav {
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        
+        .text-gold {
+            background: linear-gradient(135deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
+        * { box-sizing: border-box; }
+        html, body { 
+            width: 100%; 
+            max-width: 100%; 
+            overflow-x: hidden;
+            background: #FFFFFF;
+        }
+        img { max-width: 100%; display: block; }
+        section, footer, nav, main { max-width: 100%; }
+        html { scroll-behavior: smooth; }
 
         /* Cookie Banner */
         .cookie-banner {
@@ -29,13 +45,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(30, 27, 24, 0.98);
+            background: rgba(20, 20, 20, 0.98);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 9999;
             transform: translateY(100%);
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-top: 1px solid rgba(197, 179, 88, 0.2);
+            border-top: 1px solid rgba(184, 134, 11, 0.3);
         }
         .cookie-banner.show {
             transform: translateY(0);
@@ -44,22 +60,9 @@
             transform: translateY(100%);
         }
 
-        /* Mobilnézet optimalizálás */
-        * { box-sizing: border-box; }
-        html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
-        img { max-width: 100%; display: block; }
-        section, footer, nav, main { max-width: 100%; }
-
-        /* Smooth scroll */
-        html { scroll-behavior: smooth; }
-
         @media (max-width: 1024px) {
             .px-margin-desktop { padding-left: 32px !important; padding-right: 32px !important; }
             .py-section-gap { padding-top: 88px !important; padding-bottom: 88px !important; }
-            .gap-20 { gap: 56px !important; }
-            .text-headline-xl { font-size: 54px !important; line-height: 1.08 !important; }
-            .text-headline-lg { font-size: 36px !important; line-height: 1.18 !important; }
-            .auto-rows-\[300px\] { grid-auto-rows: 260px !important; }
         }
 
         @media (max-width: 768px) {
@@ -68,7 +71,7 @@
             main { padding-top: 72px !important; }
             .px-margin-desktop { padding-left: 20px !important; padding-right: 20px !important; }
             .py-section-gap { padding-top: 72px !important; padding-bottom: 72px !important; }
-            nav button, nav a.bg-\[#2D2926\] { 
+            nav a.cta-button { 
                 padding: 11px 16px !important; 
                 font-size: 10px !important; 
                 letter-spacing: .08em !important; 
@@ -76,77 +79,44 @@
                 white-space: normal; 
                 line-height: 1.2 !important; 
             }
-            .h-\[921px\] { 
+            .hero-section { 
                 height: auto !important; 
-                min-height: 720px !important; 
-                padding-top: 90px !important; 
-                padding-bottom: 70px !important; 
-                align-items: flex-end !important; 
+                min-height: 600px !important; 
+                padding-top: 60px !important; 
+                padding-bottom: 60px !important; 
             }
-            .bg-gradient-to-r { 
-                background: linear-gradient(to top, var(--tw-gradient-from), rgba(255,248,245,.72), transparent) !important; 
+            .hero-gradient { 
+                background: linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.7), transparent) !important; 
             }
-            .text-headline-xl { 
+            h1.hero-title { 
                 font-size: 46px !important; 
                 line-height: 1.05 !important; 
-                letter-spacing: -0.02em !important; 
             }
-            .text-headline-lg { font-size: 32px !important; line-height: 1.15 !important; }
-            .text-headline-md { font-size: 22px !important; line-height: 1.25 !important; }
-            .text-body-lg { font-size: 16px !important; line-height: 1.55 !important; }
+            h2.section-title { font-size: 32px !important; line-height: 1.15 !important; }
+            .text-lg { font-size: 16px !important; line-height: 1.55 !important; }
             .max-w-md, .max-w-2xl { max-width: 100% !important; }
             .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 24px !important; }
-            .space-y-10 > :not([hidden]) ~ :not([hidden]) { margin-top: 28px !important; }
-            .space-y-12 > :not([hidden]) ~ :not([hidden]) { margin-top: 32px !important; }
             .flex.gap-6 { 
                 flex-direction: column !important; 
-                align-items: stretch !important; 
                 gap: 14px !important; 
             }
-            .flex.gap-6 button, .flex.gap-6 a { 
+            .flex.gap-6 a { 
                 width: 100%; 
-                padding-left: 18px !important; 
-                padding-right: 18px !important; 
                 text-align: center; 
             }
-            .md\:grid-cols-2, .md\:grid-cols-3, .md\:grid-cols-4 { 
+            .grid-cols-3, .grid-cols-2 { 
                 grid-template-columns: 1fr !important; 
             }
-            .md\:flex-row { flex-direction: column !important; }
-            .gap-gutter { gap: 20px !important; }
-            .gap-20 { gap: 44px !important; }
-            .p-10 { padding: 28px !important; }
-            .p-8 { padding: 24px !important; }
-            .scale-105 { transform: none !important; }
-            .absolute.-inset-4 { display: none !important; }
-            .w-full.md\:w-1\/2 { width: 100% !important; }
-            .auto-rows-\[300px\] { grid-auto-rows: auto !important; }
-            
-            /* Galéria javítás mobilon */
             .gallery-grid { 
                 grid-template-columns: 1fr !important; 
                 gap: 16px !important;
             }
             .gallery-grid > div { 
                 aspect-ratio: 4 / 5; 
-                height: auto !important;
             }
-            .gallery-grid > div img { 
-                width: 100%; 
-                height: 100%; 
-                object-fit: cover; 
-            }
-            
-            .min-h-\[500px\] { min-height: 340px !important; }
-            .h-full.min-h-\[500px\] img { min-height: 340px !important; }
+            .award-card.scale-105 { transform: none !important; }
             footer .grid { grid-template-columns: 1fr !important; }
-            footer .mt-20 { 
-                margin-top: 48px !important; 
-                padding-left: 20px; 
-                padding-right: 20px; 
-            }
 
-            /* Cookie banner mobil */
             .cookie-banner {
                 padding: 20px !important;
             }
@@ -166,121 +136,32 @@
         }
 
         @media (max-width: 420px) {
-            .text-headline-xl { font-size: 40px !important; }
-            .text-headline-lg { font-size: 29px !important; }
-            .tracking-\[0\.3em\] { letter-spacing: 0.18em !important; }
-            nav button, nav a.bg-\[#2D2926\] { 
+            h1.hero-title { font-size: 40px !important; }
+            h2.section-title { font-size: 29px !important; }
+            nav a.cta-button { 
                 max-width: 150px; 
                 padding-left: 14px !important; 
                 padding-right: 14px !important; 
             }
-            .p-10 { padding: 24px !important; }
         }
     </style>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "outline-variant": "#cfc5b9",
-                        "on-secondary-fixed-variant": "#524700",
-                        "surface-container-low": "#fbf2ed",
-                        "primary-fixed-dim": "#dac3a3",
-                        "tertiary-container": "#cbc2b7",
-                        "surface-container-lowest": "#ffffff",
-                        "secondary-fixed-dim": "#dac769",
-                        "surface-bright": "#fff8f5",
-                        "on-secondary-fixed": "#211b00",
-                        "on-primary-fixed-variant": "#54442c",
-                        "error-container": "#ffdad6",
-                        "on-error": "#ffffff",
-                        "tertiary": "#645d55",
-                        "surface-container": "#f5ece7",
-                        "surface-tint": "#6d5c42",
-                        "on-primary-fixed": "#251a05",
-                        "surface-variant": "#e9e1dc",
-                        "on-error-container": "#93000a",
-                        "on-surface-variant": "#4c463d",
-                        "outline": "#7e766b",
-                        "tertiary-fixed-dim": "#cec5ba",
-                        "error": "#ba1a1a",
-                        "surface-container-highest": "#e9e1dc",
-                        "inverse-primary": "#dac3a3",
-                        "on-primary-container": "#5e4e35",
-                        "surface-dim": "#e1d8d4",
-                        "on-tertiary-container": "#564f47",
-                        "on-primary": "#ffffff",
-                        "surface-container-high": "#efe6e2",
-                        "primary": "#6d5c42",
-                        "secondary-container": "#f7e382",
-                        "on-tertiary": "#ffffff",
-                        "secondary": "#6c5e06",
-                        "inverse-on-surface": "#f8efea",
-                        "on-background": "#1e1b18",
-                        "primary-container": "#d6c0a0",
-                        "on-secondary-container": "#73640e",
-                        "on-tertiary-fixed-variant": "#4c463e",
-                        "on-surface": "#1e1b18",
-                        "tertiary-fixed": "#ebe1d6",
-                        "secondary-fixed": "#f7e382",
-                        "background": "#fff8f5",
-                        "on-tertiary-fixed": "#1f1b14",
-                        "on-secondary": "#ffffff",
-                        "surface": "#fff8f5",
-                        "inverse-surface": "#34302c",
-                        "primary-fixed": "#f7dfbe"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "base": "8px",
-                        "gutter": "24px",
-                        "margin-mobile": "20px",
-                        "section-gap": "120px",
-                        "margin-desktop": "80px"
-                    },
-                    "fontFamily": {
-                        "headline-lg": ["Syne"],
-                        "body-lg": ["Manrope"],
-                        "body-md": ["Manrope"],
-                        "headline-md": ["Syne"],
-                        "headline-xl": ["Syne"],
-                        "label-sm": ["Manrope"]
-                    },
-                    "fontSize": {
-                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
-                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}]
-                    }
-                },
-            },
-        }
-    </script>
 </head>
-<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<body class="bg-white text-gray-900 font-['Inter'] antialiased">
 
 <!-- Cookie Banner -->
 <div id="cookieBanner" class="cookie-banner">
     <div class="px-margin-desktop max-w-screen-2xl mx-auto py-6">
         <div class="cookie-content flex items-center justify-between gap-8">
             <div class="flex-1">
-                <p class="text-white font-body-md text-[15px] leading-relaxed">
+                <p class="text-white text-[15px] leading-relaxed">
                     🍪 Az oldal sütiket használ a jobb felhasználói élmény érdekében. A weboldal használatával elfogadod a sütikre vonatkozó szabályzatunkat.
                 </p>
             </div>
             <div class="cookie-buttons flex gap-4 flex-shrink-0">
-                <button onclick="acceptCookies()" class="bg-primary text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary/90 transition-all whitespace-nowrap">
+                <button onclick="acceptCookies()" class="bg-[#B8860B] text-white px-8 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-[#DAA520] transition-all whitespace-nowrap rounded-sm">
                     Elfogadom
                 </button>
-                <button onclick="declineCookies()" class="border border-outline-variant text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest hover:bg-white/10 transition-all whitespace-nowrap">
+                <button onclick="declineCookies()" class="border border-white/30 text-white px-8 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-white/10 transition-all whitespace-nowrap rounded-sm">
                     Elutasítom
                 </button>
             </div>
@@ -289,211 +170,221 @@
 </div>
 
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-xl shadow-sm dark:shadow-none border-b border-tertiary/20">
+<nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100">
 <div class="flex justify-between items-center h-20 px-margin-desktop max-w-screen-2xl mx-auto">
 <a href="#" class="flex items-center">
 <img src="images/befonlaklogo.png" alt="Befon Lak Logo" class="h-14 w-auto"/>
 </a>
 <div class="hidden md:flex items-center gap-10">
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#szolgaltatasok">Szolgáltatások</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#galeria">Galéria</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#elismeresek">Elismerések</a>
-<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#kapcsolat">Kapcsolat</a>
+<a class="text-gray-600 hover:text-[#B8860B] transition-colors duration-300 text-sm font-medium" href="#szolgaltatasok">Szolgáltatások</a>
+<a class="text-gray-600 hover:text-[#B8860B] transition-colors duration-300 text-sm font-medium" href="#galeria">Galéria</a>
+<a class="text-gray-600 hover:text-[#B8860B] transition-colors duration-300 text-sm font-medium" href="#elismeresek">Elismerések</a>
+<a class="text-gray-600 hover:text-[#B8860B] transition-colors duration-300 text-sm font-medium" href="#kapcsolat">Kapcsolat</a>
 </div>
-<a class="bg-[#2D2926] text-white px-8 py-3 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all duration-300 active:scale-95 inline-flex items-center justify-center" href="#kapcsolat">
+<a class="cta-button bg-gray-900 text-white px-8 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-[#B8860B] transition-all duration-300 active:scale-95 inline-flex items-center justify-center rounded-sm" href="#kapcsolat">
                 Időpontfoglalás
             </a>
 </div>
 </nav>
+
 <main class="pt-20">
 <!-- Hero Section -->
-<section class="relative h-[921px] flex items-center overflow-hidden">
+<section class="hero-section relative h-[85vh] flex items-center overflow-hidden bg-white">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover grayscale-[20%] brightness-95" alt="Professzionális hajfonás Győrben - Befon Lak szalon" src="images/befon1.jpg" onerror="this.src='images/IMG_6714.jpeg'"/>
-<div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
+<img class="w-full h-full object-cover" alt="Professzionális hajfonás Győrben - Befon Lak szalon" src="images/befon1.jpg"/>
+<div class="hero-gradient absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent"></div>
 </div>
 <div class="relative z-10 px-margin-desktop max-w-screen-2xl mx-auto w-full">
 <div class="max-w-2xl space-y-8">
-<h1 class="font-headline-xl text-headline-xl text-on-surface">Befon Lak</h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.</p>
+<h1 class="hero-title font-['Playfair_Display'] text-7xl font-bold text-gray-900 leading-tight">Befon Lak</h1>
+<p class="text-lg text-gray-600 max-w-md leading-relaxed">A fonás művészete Győr szívében. Elegancia, precizitás és tradíció minden egyes mozdulatban.</p>
 <div class="flex gap-6">
-<a class="bg-[#2D2926] text-white px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest gold-glow-hover transition-all inline-flex items-center justify-center" href="#kapcsolat">
+<a class="bg-gray-900 text-white px-10 py-4 text-xs uppercase tracking-widest font-semibold hover:bg-[#B8860B] transition-all inline-flex items-center justify-center rounded-sm premium-shadow" href="#kapcsolat">
                             Időpontfoglalás
                         </a>
-<a class="border border-outline-variant px-10 py-5 font-label-sm text-label-sm uppercase tracking-widest hover:bg-surface-container transition-all inline-flex items-center justify-center" href="#galeria">
-                            Galéria megtekintése
+<a class="border-2 border-gray-900 text-gray-900 px-10 py-4 text-xs uppercase tracking-widest font-semibold hover:bg-gray-900 hover:text-white transition-all inline-flex items-center justify-center rounded-sm" href="#galeria">
+                            Galéria
                         </a>
 </div>
 </div>
 </div>
 </section>
+
 <!-- Awards Section -->
-<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto" id="elismeresek">
-<div class="text-center mb-20">
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Elismerések</span>
-<h2 class="font-headline-lg text-headline-lg mt-4">Díjazott Szakértelem</h2>
+<section class="py-24 px-margin-desktop max-w-screen-2xl mx-auto bg-white" id="elismeresek">
+<div class="text-center mb-16">
+<span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Elismerések</span>
+<h2 class="section-title font-['Playfair_Display'] text-5xl font-bold mt-4 text-gray-900">Díjazott Szakértelem</h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Award Card 1 -->
-<div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all">
-<span class="material-symbols-outlined text-secondary text-5xl">emoji_events</span>
-<h3 class="font-headline-md text-headline-md">Vivihajműhely Online Kupa</h3>
-<p class="font-body-md text-on-surface-variant">2023 — 2. helyezett</p>
-<div class="w-12 h-px bg-outline-variant"></div>
+<div class="award-card p-10 bg-white border border-gray-100 flex flex-col items-center text-center space-y-6 premium-shadow-hover transition-all rounded-sm">
+<span class="material-symbols-outlined text-[#B8860B] text-5xl">emoji_events</span>
+<h3 class="font-['Playfair_Display'] text-2xl font-semibold text-gray-900">Vivihajműhely Online Kupa</h3>
+<p class="text-gray-600">2023 — 2. helyezett</p>
+<div class="w-12 h-px bg-gray-200"></div>
 </div>
 <!-- Award Card 2 -->
-<div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all scale-105 z-10 shadow-xl shadow-primary/5">
-<span class="material-symbols-outlined text-secondary text-5xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-<h3 class="font-headline-md text-headline-md">MFKKE Bajnokság</h3>
-<p class="font-body-md text-on-surface-variant">2025 — Cover photo különdíj</p>
-<div class="w-12 h-px bg-outline-variant"></div>
+<div class="award-card p-10 bg-white border-2 border-[#B8860B] flex flex-col items-center text-center space-y-6 premium-shadow-hover transition-all scale-105 z-10 rounded-sm">
+<span class="material-symbols-outlined text-[#B8860B] text-5xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="font-['Playfair_Display'] text-2xl font-semibold text-gray-900">MFKKE Bajnokság</h3>
+<p class="text-gray-600">2025 — Cover photo különdíj</p>
+<div class="w-12 h-px bg-gray-200"></div>
 </div>
 <!-- Award Card 3 -->
-<div class="p-10 border border-tertiary/20 bg-surface-bright flex flex-col items-center text-center space-y-6 gold-glow-hover transition-all">
-<span class="material-symbols-outlined text-secondary text-5xl">military_tech</span>
-<h3 class="font-headline-md text-headline-md">MFKKE Online Kupa</h3>
-<p class="font-body-md text-on-surface-variant">3. és 5. helyezés</p>
-<div class="w-12 h-px bg-outline-variant"></div>
+<div class="award-card p-10 bg-white border border-gray-100 flex flex-col items-center text-center space-y-6 premium-shadow-hover transition-all rounded-sm">
+<span class="material-symbols-outlined text-[#B8860B] text-5xl">military_tech</span>
+<h3 class="font-['Playfair_Display'] text-2xl font-semibold text-gray-900">MFKKE Online Kupa</h3>
+<p class="text-gray-600">3. és 5. helyezés</p>
+<div class="w-12 h-px bg-gray-200"></div>
 </div>
 </div>
 </section>
+
 <!-- Services Section -->
-<section class="py-section-gap bg-surface-container-low overflow-hidden" id="szolgaltatasok">
+<section class="py-24 bg-gray-50 overflow-hidden" id="szolgaltatasok">
 <div class="px-margin-desktop max-w-screen-2xl mx-auto flex flex-col md:flex-row gap-20 items-center">
-<div class="w-full md:w-1/2 space-y-12">
+<div class="w-full md:w-1/2 space-y-10">
 <div class="space-y-4">
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Szolgáltatások</span>
-<h2 class="font-headline-lg text-headline-lg">Professzionális Hajfonás</h2>
+<span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Szolgáltatások</span>
+<h2 class="section-title font-['Playfair_Display'] text-5xl font-bold text-gray-900">Professzionális Hajfonás</h2>
 </div>
 <ul class="space-y-8">
 <li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<span class="material-symbols-outlined text-[#B8860B] mt-1 text-2xl">check_circle</span>
 <div>
-<h4 class="font-headline-md text-[20px]">Digitális hajtervezés</h4>
-<p class="text-on-surface-variant mt-2">Személyre szabott konzultáció és vizuális tervezés a tökéletes forma eléréséhez.</p>
+<h4 class="font-['Playfair_Display'] text-xl font-semibold text-gray-900">Digitális hajtervezés</h4>
+<p class="text-gray-600 mt-2 leading-relaxed">Személyre szabott konzultáció és vizuális tervezés a tökéletes forma eléréséhez.</p>
 </div>
 </li>
 <li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<span class="material-symbols-outlined text-[#B8860B] mt-1 text-2xl">check_circle</span>
 <div>
-<h4 class="font-headline-md text-[20px]">Alkalmi hajfonás</h4>
-<p class="text-on-surface-variant mt-2">Esküvői, báli és ünnepi frizurák, melyek egész nap és éjjel tartanak.</p>
+<h4 class="font-['Playfair_Display'] text-xl font-semibold text-gray-900">Alkalmi hajfonás</h4>
+<p class="text-gray-600 mt-2 leading-relaxed">Esküvői, báli és ünnepi frizurák, melyek egész nap és éjjel tartanak.</p>
 </div>
 </li>
 <li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1">check_circle</span>
+<span class="material-symbols-outlined text-[#B8860B] mt-1 text-2xl">check_circle</span>
 <div>
-<h4 class="font-headline-md text-[20px]">Művészeti workshopok</h4>
-<p class="text-on-surface-variant mt-2">Szakmai továbbképzések és élményfonás kezdőknek és haladóknak egyaránt.</p>
+<h4 class="font-['Playfair_Display'] text-xl font-semibold text-gray-900">Művészeti workshopok</h4>
+<p class="text-gray-600 mt-2 leading-relaxed">Szakmai továbbképzések és élményfonás kezdőknek és haladóknak egyaránt.</p>
 </div>
 </li>
 </ul>
-<div class="p-8 border-l-4 border-primary bg-surface/50 italic font-body-lg text-body-lg text-on-surface">
+<div class="p-8 border-l-4 border-[#B8860B] bg-white italic text-lg text-gray-700 leading-relaxed premium-shadow rounded-sm">
                         "A hajad a koronád, én pedig segítek, hogy minden nap méltósággal viselhesd."
                     </div>
 </div>
 <div class="w-full md:w-1/2 relative">
-<div class="absolute -inset-4 border border-primary/20 translate-x-8 translate-y-8"></div>
-<img class="relative z-10 aspect-[4/5] object-cover w-full gold-glow" alt="Hajfonás folyamat részletei - Befon Lak" src="images/befon3.jpg"/>
+<div class="absolute -inset-4 border border-gray-200 translate-x-8 translate-y-8 rounded-sm"></div>
+<img class="relative z-10 aspect-[4/5] object-cover w-full premium-shadow rounded-sm" alt="Hajfonás folyamat részletei - Befon Lak" src="images/befon3.jpg"/>
 </div>
 </div>
 </section>
+
 <!-- Gallery Section -->
-<section class="py-section-gap px-margin-desktop max-w-screen-2xl mx-auto" id="galeria">
-<div class="text-center mb-20 space-y-4">
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Galéria</span>
-<h2 class="font-headline-lg text-headline-lg">Munkáink</h2>
+<section class="py-24 px-margin-desktop max-w-screen-2xl mx-auto bg-white" id="galeria">
+<div class="text-center mb-16 space-y-4">
+<span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Galéria</span>
+<h2 class="section-title font-['Playfair_Display'] text-5xl font-bold text-gray-900">Munkáink</h2>
 </div>
-<div class="gallery-grid grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[300px]">
+<div class="gallery-grid grid grid-cols-2 md:grid-cols-3 gap-6 auto-rows-[300px]">
 <!-- Kép 1 - Nagy -->
-<div class="col-span-2 row-span-2 overflow-hidden group">
+<div class="col-span-2 row-span-2 overflow-hidden group rounded-sm">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Komplex hajfonási minta - Befon Lak portfólió" src="images/befon2.jpg"/>
 </div>
 <!-- Kép 2 -->
-<div class="col-span-1 row-span-1 overflow-hidden group">
+<div class="col-span-1 row-span-1 overflow-hidden group rounded-sm">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Kislány hajfonás színes kiegészítőkkel" src="images/befon4.jpg"/>
 </div>
 <!-- Kép 3 -->
-<div class="col-span-1 row-span-1 overflow-hidden group">
+<div class="col-span-1 row-span-1 overflow-hidden group rounded-sm">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Elegáns fekete hajfonás design" src="images/befon5.jpg"/>
 </div>
 <!-- Kép 4 -->
-<div class="col-span-1 row-span-1 overflow-hidden group">
+<div class="col-span-1 row-span-1 overflow-hidden group rounded-sm">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Francia fonás variáció" src="images/befon3.jpg"/>
 </div>
 <!-- Kép 5 -->
-<div class="col-span-1 row-span-1 overflow-hidden group">
+<div class="col-span-1 row-span-1 overflow-hidden group rounded-sm">
 <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pasztell színű hajfonás kisgyerekeknek" src="images/befon6.jpg"/>
 </div>
 </div>
 </section>
+
 <!-- Visit Section -->
-<section class="py-section-gap bg-surface-bright" id="kapcsolat">
+<section class="py-24 bg-gray-50" id="kapcsolat">
 <div class="px-margin-desktop max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
 <div class="space-y-10">
 <div class="space-y-4">
-<span class="font-label-sm text-label-sm text-primary uppercase tracking-[0.3em]">Kapcsolat</span>
-<h2 class="font-headline-lg text-headline-lg">Látogasd meg a Győri Szalont</h2>
+<span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Kapcsolat</span>
+<h2 class="section-title font-['Playfair_Display'] text-5xl font-bold text-gray-900">Látogasd meg a Győri Szalont</h2>
 </div>
-<div class="space-y-8">
+<div class="space-y-6">
 <div class="flex items-center gap-6">
-<span class="material-symbols-outlined text-primary text-3xl">location_on</span>
-<p class="font-body-lg">9022 Győr</p>
-</div>
-<div class="flex items-center gap-6">
-<span class="material-symbols-outlined text-primary text-3xl">history</span>
-<p class="font-body-lg">Több éves tapasztalat</p>
+<span class="material-symbols-outlined text-[#B8860B] text-3xl">location_on</span>
+<p class="text-lg text-gray-700">9022 Győr</p>
 </div>
 <div class="flex items-center gap-6">
-<span class="material-symbols-outlined text-primary text-3xl">photo_camera</span>
-<p class="font-body-lg">@befonlak — Kövess minket Instagramon</p>
+<span class="material-symbols-outlined text-[#B8860B] text-3xl">history</span>
+<p class="text-lg text-gray-700">Több éves tapasztalat</p>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#B8860B] text-3xl">photo_camera</span>
+<p class="text-lg text-gray-700">@befonlak — Kövess minket Instagramon</p>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#B8860B] text-3xl">chat</span>
+<p class="text-lg text-gray-700">Időpont foglalás Facebook Messengeren</p>
 </div>
 </div>
-<div class="p-10 border border-outline-variant/30 space-y-6">
-<h4 class="font-headline-md">Nyitvatartás</h4>
-<div class="grid grid-cols-2 gap-4 font-body-md text-on-surface-variant">
+<div class="p-8 border border-gray-200 bg-white space-y-6 premium-shadow rounded-sm">
+<h4 class="font-['Playfair_Display'] text-2xl font-semibold text-gray-900">Nyitvatartás</h4>
+<div class="grid grid-cols-2 gap-4 text-gray-600">
 <span>Hétfő - Péntek:</span>
-<span class="text-on-surface">09:00 - 18:00</span>
+<span class="text-gray-900 font-medium">09:00 - 18:00</span>
 <span>Szombat:</span>
-<span class="text-on-surface">09:00 - 14:00</span>
+<span class="text-gray-900 font-medium">09:00 - 14:00</span>
 <span>Vasárnap:</span>
-<span class="text-on-surface">Zárva</span>
+<span class="text-gray-900 font-medium">Zárva</span>
 </div>
 </div>
 </div>
 <div class="h-full min-h-[500px] relative">
-<img class="w-full h-full object-cover gold-glow" alt="Befon Lak - Professzionális hajfonó mester" src="images/befonlak10.jpg"/>
+<img class="w-full h-full object-cover premium-shadow rounded-sm" alt="Befon Lak - Professzionális hajfonó mester" src="images/befonlak10.jpg"/>
 </div>
 </div>
 </section>
 </main>
+
 <!-- Footer -->
-<footer class="w-full py-section-gap bg-surface-container-low border-t border-tertiary/10">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-screen-2xl mx-auto">
+<footer class="w-full py-20 bg-white border-t border-gray-100">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-margin-desktop max-w-screen-2xl mx-auto">
 <div class="space-y-6">
-<img src="images/befonlaklogo.png" alt="Befon Lak Logo" class="h-24 w-auto"/>
-<p class="font-body-md text-on-surface-variant">Prémium hajfonó szalon Győrben. A minőség és az elegancia találkozása.</p>
+<img src="images/befonlaklogo.png" alt="Befon Lak Logo" class="h-20 w-auto"/>
+<p class="text-gray-600 leading-relaxed">Prémium hajfonó szalon Győrben. A minőség és az elegancia találkozása.</p>
 <div class="flex gap-4">
-<a href="https://www.facebook.com/lak.befon.77" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity">public</span>
+<a href="https://www.facebook.com/lak.befon.77" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[#B8860B] hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl">public</span>
 </a>
-<a href="https://instagram.com/befonlak" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-<span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity">photo_camera</span>
+<a href="https://instagram.com/befonlak" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-[#B8860B] hover:text-white transition-all">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
 </a>
 </div>
 </div>
 <div class="space-y-6">
-<h5 class="font-label-sm text-label-sm text-primary uppercase">Navigáció</h5>
-<ul class="space-y-4 font-body-md text-on-surface-variant">
-<li><a class="hover:text-primary transition-colors duration-200" href="#szolgaltatasok">Szolgáltatások</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#galeria">Galéria</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#elismeresek">Elismerések</a></li>
-<li><a class="hover:text-primary transition-colors duration-200" href="#kapcsolat">Időpontfoglalás</a></li>
+<h5 class="text-xs uppercase text-[#B8860B] tracking-wider font-semibold">Navigáció</h5>
+<ul class="space-y-3 text-gray-600">
+<li><a class="hover:text-[#B8860B] transition-colors duration-200" href="#szolgaltatasok">Szolgáltatások</a></li>
+<li><a class="hover:text-[#B8860B] transition-colors duration-200" href="#galeria">Galéria</a></li>
+<li><a class="hover:text-[#B8860B] transition-colors duration-200" href="#elismeresek">Elismerések</a></li>
+<li><a class="hover:text-[#B8860B] transition-colors duration-200" href="#kapcsolat">Időpontfoglalás</a></li>
 </ul>
 </div>
 <div class="space-y-6">
-<h5 class="font-label-sm text-label-sm text-primary uppercase">Elérhetőség</h5>
-<ul class="space-y-4 font-body-md text-on-surface-variant">
+<h5 class="text-xs uppercase text-[#B8860B] tracking-wider font-semibold">Elérhetőség</h5>
+<ul class="space-y-3 text-gray-600">
 <li>Győr, Belváros</li>
 <li>Időpont egyeztetés üzenetben</li>
 <li>Instagram: @befonlak</li>
@@ -501,7 +392,7 @@
 </ul>
 </div>
 </div>
-<div class="mt-20 text-center font-label-sm text-label-sm text-on-surface-variant opacity-60">
+<div class="mt-16 text-center text-xs text-gray-400 px-margin-desktop">
             © 2026 Befon Lak. Minden jog fenntartva.
         </div>
 </footer>
