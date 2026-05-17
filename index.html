@@ -64,6 +64,7 @@
 
         @media (max-width: 768px) {
             nav .h-20 { height: 72px !important; }
+            nav img { height: 48px !important; }
             main { padding-top: 72px !important; }
             .px-margin-desktop { padding-left: 20px !important; padding-right: 20px !important; }
             .py-section-gap { padding-top: 72px !important; padding-bottom: 72px !important; }
@@ -290,7 +291,9 @@
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-dim/90 backdrop-blur-xl shadow-sm dark:shadow-none border-b border-tertiary/20">
 <div class="flex justify-between items-center h-20 px-margin-desktop max-w-screen-2xl mx-auto">
-<div class="text-headline-md font-headline-md tracking-tight text-on-surface">Befon Lak</div>
+<a href="#" class="flex items-center">
+<img src="images/befonlaklogo.png" alt="Befon Lak Logo" class="h-14 w-auto"/>
+</a>
 <div class="hidden md:flex items-center gap-10">
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#szolgaltatasok">Szolgáltatások</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-body-md text-body-md" href="#galeria">Galéria</a>
@@ -468,10 +471,10 @@
 <footer class="w-full py-section-gap bg-surface-container-low border-t border-tertiary/10">
 <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-screen-2xl mx-auto">
 <div class="space-y-6">
-<div class="text-headline-md font-headline-md text-on-surface">Befon Lak</div>
-<p class="font-body-md text-on-surface-variant">Prémium hajfonó szalon Győrben. A minőség és az elegancia találkozása 1986 óta.</p>
+<img src="images/befonlaklogo.png" alt="Befon Lak Logo" class="h-24 w-auto"/>
+<p class="font-body-md text-on-surface-variant">Prémium hajfonó szalon Győrben. A minőség és az elegancia találkozása.</p>
 <div class="flex gap-4">
-<a href="https://facebook.com/befonlak" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+<a href="https://www.facebook.com/lak.befon.77" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
 <span class="material-symbols-outlined text-primary opacity-80 hover:opacity-100 cursor-pointer transition-opacity">public</span>
 </a>
 <a href="https://instagram.com/befonlak" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
